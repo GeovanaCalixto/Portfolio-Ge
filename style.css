@@ -9,6 +9,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+p {
+  font-size: 16px !important;
+}
+
 a, a:link, a:visited, a:hover, a:active {
   color: inherit;
   text-decoration: none;
@@ -448,6 +452,10 @@ div.experience-card{
 
 /* Responsivo */
 @media (max-width: 768px) {
+  p {
+    font-size: 17px;
+  }
+
   .highlight-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -459,7 +467,6 @@ div.experience-card{
   }
 }
 
-
 /* Responsividade */
 @media (max-width: 768px) {
   .experience-header {
@@ -467,6 +474,11 @@ div.experience-card{
     text-align: left;
     gap: 20px;
   }
+
+   p {
+    font-size: 17px;
+  }
+
 
   .experience-description {
     text-align: left;
@@ -500,6 +512,11 @@ div.experience-card{
     gap: 4rem;
   }
 }
+
+ p {
+    font-size: 17px;
+  }
+
 
 .left-content {
   max-width: 600px;
@@ -579,6 +596,10 @@ div.experience-card{
   .container-skills-experience {
     flex-direction: column; /* Colunas empilham em telas menores */
     gap: 40px; /* Ajuste o espaçamento */
+  }
+
+ p {
+    font-size: 17px;
   }
 
   .col-left, .col-right {
@@ -819,6 +840,7 @@ div.experience-card{
 @media (max-width: 576px) {
   .menu {
     display: none; /* Ou transformar em menu hamburger com JS */
+    font-size: 1.1;
   }
 
   .contato .telefone {
