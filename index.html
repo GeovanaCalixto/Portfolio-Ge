@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfólio Ge</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Menu de navegação -->
+  <nav class="navbar">
+    <div class="container">
+      <img src="Imagens/Ativo 1@4x.png" class="logo" alt="logo">
+
+      <div class="menu">
+        <a class="nav-item" href="#habilidades">Habilidades</a>
+        <a class="nav-item" href="#ferramentas">Ferramentas</a>
+        <a class="nav-item" href="#experiencia">Experiência</a>
+        <a class="nav-item" href="#publicacoes">Publicações</a>
+        <a class="nav-item" href="#recomendacoes">Recomendações</a>
+      </div>
+
+      <div class="contato">
+        <a class="telefone" href="https://wa.me/5511995307033" target="_blank">
+          <i class="bi bi-phone"></i> +55 (11) 99530-7033
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carrossel -->
+
+  <div id="carouselExampleCaptions" class="carousel slide" href="#carousel slide"  data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Imagens/slide1.png" class="d-block w-100" alt="Arte 1">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Imagens/slide2.png" class="d-block w-100" alt="Arte 2">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+ <section class="destaque">
+  <div class="conteudo">
+    <h2>
+      "Minha missão é construir marcas que geram valor, impacto positivo e crescimento sustentável nos setores de<br>
+       saúde, sustentabilidade e tecnologia".
+    </h2>
+
+    <div class="logos">
+      <img src="Imagens/Figurasportfólio/Figura1.png" alt="Saude">
+      <img src="Imagens/Figurasportfólio/Figura2.png" alt="Vida do Planeta">
+      <img src="Imagens/Figurasportfólio/Figura3.png" alt="sustentabilidade">
+      <img src="Imagens/Figurasportfólio/Figura4.png" alt="Mobilidade Sustentavel">
+      <img src="Imagens/Figurasportfólio/Figura5.png" alt="Tecnologia">
+      <img src="Imagens/Figurasportfólio/Figura6.png" alt="Vida Sustentavel">
+    </div>
+  </div>
+</section>
+
+ <section class="servicos" id="habilidades">
+  <div class="container">
+    <h2 class="titulo-secao">Como posso<br>ajudar você?</h2>
+
+    <div class="grid-servicos">
+      <div class="card-servico">
+        <div class ="icone">
+          <img src="Imagens/Figurassolucoes/Figuras-1-Logo - 1 versão.png" alt="Marketing Estratégico">
+        </div>
+        <p>Planejamento e execução de ações de marketing orientadas por dados, com foco em performance e posicionamento.</p>
+        <strong>Marketing Estratégico</strong>
+        <span>01</span>
+      </div>
+
+      <div class="card-servico">
+        <div class ="icone">
+            <img src="Imagens/Figurassolucoes/Figuras-2-Logo - 1 versão.png" alt="Branding">
+        </div>
+        <p>Desenvolvimento de marcas autênticas e memoráveis, com identidade visual forte e posicionamento claro.</p>
+        <strong>Branding</strong>
+        <span>02</span>
+      </div>
+
+      <div class="card-servico">
+       <div class ="icone">
+          <img src="Imagens/Figurassolucoes/Figuras-3-Logo - 1 versão.png" alt="Inbound Marketing & SEO">
+        </div>
+        <p>Criação de conteúdos estratégicos e otimização para atrair, engajar e converter com relevância e valor.</p>
+        <strong>Inbound Marketing & SEO</strong>
+        <span>03</span>
+      </div>
+
+      <div class="card-servico">
+       <div class =icone>
+          <img src="Imagens/Figurassolucoes/Figuras-4-Logo - 1 versão.png" alt="Web 3.0">
+        </div>
+        <p>Aplicação de IA e Web 3.0 para potencializar estratégias de marketing com inovação e personalização.</p>
+        <strong>Tecnologia Web 3.0 orientada ao marketing </strong>
+        <span>04</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ferramentas" id="ferramentas">
+  <h2 class="titulo-secao">Ferramentas que utilizo</h2>
+  <div class="slider">
+    <div class="slider-track">
+      <!-- Repetimos os itens para o loop infinito -->
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-5-Logo - 1 versão.png" alt="Power BI">Power BI</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-6-Logo - 1 versão.png" alt="Looker Studio">Looker Studio</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-7-Logo - 1 versão.png" alt="Meta Business Suite">Meta Business Suite</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-8-Logo - 1 versão.png" alt="Trello">Trello</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-9-Logo - 1 versão.png" alt="ChatGPT">ChatGPT</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-10-Logo - 1 versão.png" alt="Canva">Canva</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-11-Logo - 1 versão.png" alt="Photoshop">Photoshop</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-12-Logo - 1 versão.png" alt="Figma">Figma</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-13-Logo - 1 versão.png" alt="Adobe Express">Adobe Express</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-14-Logo - 1 versão.png" alt="Illustrator">Illustrator</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-15-Logo - 1 versão.png" alt="Evernote">Evernote</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-16-Logo - 1 versão.png" alt="Meta Ads">Meta Ads</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-17-Logo - 1 versão.png" alt="LinkedIn Ads">LinkedIn Ads</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-18-Logo - 1 versão.png" alt="TikTok Ads">TikTok Ads</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-19-Logo - 1 versão.png" alt="Google Analytics">Google Analytics</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-20-Logo - 1 versão.png" alt="HubSpot">HubSpot</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-21-Logo - 1 versão.png" alt="UTMs">UTMs</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-22-Logo - 1 versão.png" alt="Google Tag Manager">Google Tag Manager</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-23-Logo - 1 versão.png" alt="Google Agenda">Google Agenda</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-24-Logo - 1 versão.png" alt="Mentimeter">Mentimeter</div>
+      <div class="item"><img src="Imagens/Figurasferramentas/Figuras-25-Logo - 1 versão.png" alt="MetaMask">MetaMask</div>
+    </div>
+  </div>
+</section>
+
+<section class="experience-section" id="experiencia"> 
+  <div class="experience-header">
+    <div class="experience-title">
+      <h2>Minhas Experiências</h2>
+    </div>
+    <div class="experience-description">
+      <p>"Minha trajetória une marketing estratégico a experiências em setores diversos, do tradicional ao tecnológico, sempre buscando inovar e gerar resultados concretos e impactantes”.</p>
+    </div>
+  </div>
+
+  <div class="experience-grid">
+    <div class="experience-card">
+      <h3>Consultora e Coordenadora de Redes (voluntária)</h3>
+      <p>Atuo com consultoria estratégica para empresas do setor de viagens e organizações não-governamentais. Gerencio canais digitais, estruturo branding e planejamento de marketing, alinhando comunicação e fortalecimento de marca. Também coordeno redes sociais, criando e executando estratégias para engajamento e crescimento.</p>
+      <span class="date">Atual</span>
+    </div>
+    <div class="experience-card">
+      <h3>Analista de Marketing</h3>
+      <p>Implementei estratégias digitais e tradicionais para ampliar a marca. Gerenciei canais como redes sociais, blog e comunicação. Estruturei análise de dados com dashboards em Power BI. Produzi conteúdos, coordenei projetos com design e vendas, e planejei eventos promocionais.</p>
+      <span class="date">Epadoca (Jun 2024 - Fev 2025)</span>
+    </div>
+    <div class="experience-card">
+      <h3>Estágios em Marketing</h3>
+      <p>Atuei no marketing B2B das duas empresas, com foco em inbound, redes sociais e produção de conteúdo. Na NEON Comercial, participei do projeto premiado Neoncast. Na Startup Epadoca, executei estratégias de branding, endomarketing e performance, experiência que me levou à promoção como analista.</p>
+      <span class="date"> Epadoca (Out 2023 - Mai 2024)<br>NEON (Ago 2022 -Fev 2023)</span>
+    </div>
+    <div class="experience-card">
+      <h3>Autonôma em Marketing</h3>
+      <p>Fui contratada antes da faculdade para um projeto de três meses, após me destacar em um processo seletivo. Atuei no marketing de um empreendimento da Dexpert Engenharia, desenvolvendo campanhas inbound e outbound focadas em visibilidade e engajamento.</p>
+      <span class="date">Agência Soulful (Fev 2022 - Abr 2022)</span>
+    </div>
+  </div>
+</section>
+
+<section class="highlight-section" id="publicacoes">
+  <h2>Postagens em Destaque — Vale a pena conferir</h2>
+
+  <div class="highlight-grid">
+    
+    <!-- Card 1 -->
+    <div class="card card1">
+      <span class="tag">Destaque</span>
+      <h3>Você já pensou em segmentar seu ramo de atuação como profissional de marketing?</h3>
+      <p>A verdadeira diferenciação começa quando a gente escolhe com quem e para quem quer trabalhar.
+         Não é sobre fazer de tudo para todos, mas fazer com propósito para quem importa.</p>
+      <a href="#" class="read-more">Veja completo →</a>
+    </div>
+
+    <!-- Card 2 (omitimos imagem, só título e texto) -->
+    <div class="card card2">
+      <h3>O conteúdo está a caminho</h3>
+      <p> e vem com propósito...</p>
+      <a href="#" class="read-more">Veja completo →</a>
+    </div>
+
+    <!-- Card 3 (lista de tópicos) -->
+    <div class="card card3">
+      <h3>Tópicos em alta</h3>
+      <div class="tag-list">
+        <span class="tag">Carreira & Propósito</span>
+        <span class="tag">Tag</span>
+        <span class="tag">Tag</span>
+        <span class="tag">Tag</span>
+        <span class="tag">Tag</span>
+        <span class="tag">Tag</span>
+        <span class="tag">Tag</span>
+      </div>
+      <a href="#" class="read-more">Veja completo →</a>
+    </div>
+
+    <!-- Card 4 (frase em destaque) -->
+    <div class="card card4">
+      <h3>O conteúdo está a caminho</h3>
+      <p>e vem com propósito...</p>
+      <a href="#" class="read-more">Veja completo →</a>
+    </div>
+
+    <!-- Card 5 (oferta ou benefício) -->
+    <div class="card card5">
+      <span class="tag blue">Especial</span>
+      <h3>O conteúdo está a caminho</h3>
+      <p>e vem com propósito...</p>
+      <a href="#" class="read-more">Veja completo →</a>
+    </div>
+
+  </div>
+</section>
+
+ <section class="recommendation-section" id="recomendacoes">
+  <div class="recommendation-container">
+    <!-- Lado esquerdo -->
+    <div class="left-content">
+      <h2 class="section-title">
+        Vozes da minha jornada
+      </h2>
+      <p class="section-description">
+        "Ao longo da minha jornada, recebi recomendações que reforçam meu compromisso com resultados, colaboração e evolução constante na área de marketing."
+      </p>
+      <a href="https://www.linkedin.com/in/geovanacostabr/" target="_blank" class="linkedin-button">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="linkedin-icon">
+        Vamos nos conectar no LinkedIn
+      </a>
+    </div>
+
+    <!-- Lado direito -->
+    <div class="testimonial-box">
+      <p class="testimonial-text">
+        “Tive o prazer de trabalhar na Epadoca com a Geovana e acompanhar sua dedicação e criatividade no time de marketing. Ela é uma pessoa extremamente criativa e focada, sempre trazendo ideias novas para fortalecer a marca e conectar nosso público de forma autêntica. O olhar estratégico e a capacidade de entender o que realmente importa para o público fazem dela uma profissional única.”
+      </p>
+      <p class="testimonial-author">Jennifer Priscila</p>
+      <p class="testimonial-role">Líder de Suporte ao Cliente</p>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-wave"></div>
+  <div class="container py-5 text-white d-flex flex-wrap justify-content-between">
+
+    <!-- Coluna da marca alinhada mais à esquerda -->
+    <div class="footer-col mb-4 brand-col">
+      <img src= "Imagens/Ativo 1@4x.png" class="logofooter" alt="Logo Ge">
+      <p class="small">
+        Todo o conteúdo deste site é protegido.</p>
+      <div class="social-icons mt-3">
+        <a href="https://www.linkedin.com/in/geovanacostabr/"><i class="bi bi-linkedin"></i>
+        <a href="https://linktr.ee/socialmidias"><i class="bi bi-share"></i>
+        <a href="giocastelino@gmail.com"><i class="bi bi-envelope-at"></i>
+      </div>
+    </div>
+
+
+ <div class="footer-col mb-4 links-col">
+  <h5>Links</h5>
+  <ul class="list-unstyled">
+    <li><a href="giocastelino@gmail.com">Gmail</a></li>
+    <li><a href="https://www.linkedin.com/in/geovanacostabr/">Depoimentos</a></li>
+    <li><a href="#">Curriculo</a></li>
+    <li><a href="#">Vídeo de Apresentação</a></li>
+  </ul>
+</div>
+
+
+    <div class="footer-col mb-4">
+      <h5>Contato</h5>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-telephone-fill me-2"></i> +55 (11) 99530-7033</li>
+        <li><i class="bi bi-envelope-fill me-2"></i> giocastelino@gmail.com</li>
+        <li><i class="bi bi-geo-alt-fill me-2"></i> São Paulo, SP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom text-center py-3">
+    <a href="#habilidades" class="scroll-top"><i class="bi bi-arrow-up-circle-fill"></i></a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  });
+ </script>
+</body>
+</html>
+
