@@ -578,7 +578,7 @@ div.experience-card{
 @media (max-width: 768px) {
   .container-skills-experience {
     flex-direction: column; /* Colunas empilham em telas menores */
-    gap: 43px; /* Ajuste o espaçamento */
+    gap: 40px; /* Ajuste o espaçamento */
   }
 
   .col-left, .col-right {
@@ -823,7 +823,7 @@ div.experience-card{
 
   .contato .telefone {
     padding: 6px 10px;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .destaque {
@@ -831,8 +831,7 @@ div.experience-card{
   }
 
   .destaque h2 {
-    font-size: 19px;
-     padding-top: 0
+    font-size: 18px;
   }
 
   .grid-servicos {
@@ -943,7 +942,7 @@ div.experience-card{
 
   .titulo-secao {
     font-size: 28px;
-    padding-top: 0
+    text-align: center;
   }
 
   .grid-servicos {
