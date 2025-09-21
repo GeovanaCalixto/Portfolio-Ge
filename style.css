@@ -1013,17 +1013,17 @@ div.experience-card{
 /*Grade de Projetos*/
 
 :root{
-  --bg: #f2f2f2;
-  --card-bg: #ffffff;
-  --text:#222;
+  --bg: #d86f52;
+  --card-bg: #FFFFFF;
+  --text:#3D3A3A;
   --muted:#6b6b6b;
-  --accent:#6b4ce6;   /* ajuste para o seu roxo */
+  --accent:#D77B8A;   /* ajuste para o seu roxo */
   --radius:18px;
   --shadow: 0 10px 25px rgba(0,0,0,.08);
 }
 
 .projetos{
-  max-width: 1120px;
+  max-width: auto;
   margin: 0 auto;
   padding: 50px 16px;
   background: var(--bg);
