@@ -1109,7 +1109,8 @@ div.experience-card{
   padding: 10px 20px;
   border-radius: 999px;
   text-decoration:none;
-  color: var(--text);
+  color: #333;
+  background-color: #e2e2e2;
   font-weight:600;
   transition: background .2s ease, color .2s ease;
 }
