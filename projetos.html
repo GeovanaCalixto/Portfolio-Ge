@@ -3,56 +3,143 @@
 <html lang="pt-BR">
 
 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos – Portfólio da Gi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="projetos.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Voltar para a Home">Gi • Portfólio</a>
+      <nav class="top-nav" aria-label="Seções">
+        <a href="index.html">Home</a>
+        <a class="active" href="projetos.html" aria-current="page">Projetos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Projetos</h1>
+        <p>Seleção de cases em <strong>UI/UX, branding, conteúdo e web</strong>. Clique para ver o detalhe do projeto.</p>
 
+        <!-- Opcional: filtro simples por tags (sem JS) -->
+        <div class="tags-inline" aria-label="Categorias">
+          <a href="#uiux" class="tag">UI/UX</a>
+          <a href="#branding" class="tag">Branding</a>
+          <a href="#conteudo" class="tag">Conteúdo</a>
+          <a href="#web" class="tag">Web</a>
+        </div>
+      </div>
+    </section>
 
-<div class="projetos__grid" id="lista-projetos">
-<!-- Copie e cole blocos .gallery-item conforme sua necessidade -->
-<a class="gallery-item" href="#projeto-1" data-tags="stand feira fipan 2025 ui">
-<figure>
-<img src="Imagens/imgprojetos/Fotos da section projeto-1.png" alt="projeto de stand para feira FIPAN 2025" loading="lazy">
-<figcaption>Projeto 1</figcaption>
-</figure>
-</a>
+    <section class="gallery container">
+      <!-- CARD – exemplo 1 -->
+      <article class="card">
+        <a class="card-link" href="projetos/crypto-wallet.html" aria-label="Abrir projeto Crypto Wallet">
+          <figure class="card-media">
+            <!-- Substitua pelo seu thumbnail 1200x900 ou 1600x1200 -->
+            <img src="img/thumbs/crypto-wallet.jpg" alt="Screens da interface de uma crypto wallet com gráficos e listas" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Crypto Wallet</h2>
+            <p class="card-meta">UI/UX • App • Fintech</p>
+            <ul class="card-tags" aria-label="Tags do projeto">
+              <li>UI</li><li>Mobile</li><li>Design System</li>
+            </ul>
+          </div>
+        </a>
+      </article>
 
+      <!-- CARD – exemplo 2 -->
+      <article class="card">
+        <a class="card-link" href="projetos/app-marketplace.html">
+          <figure class="card-media">
+            <img src="img/thumbs/app-marketplace.jpg" alt="Mockups de app marketplace com telas coloridas" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">App Marketplace</h2>
+            <p class="card-meta">UI/UX • Mobile</p>
+            <ul class="card-tags"><li>UX</li><li>Pesquisa</li><li>Prototipação</li></ul>
+          </div>
+        </a>
+      </article>
 
-<a class="gallery-item" href="#projeto-2" data-tags="mockup materiais divulgacao branding">
-<figure>
-<img src="Imagens/imgprojetos/Fotos da section projeto-2.png" alt="mockup de materiais de divulgação da marca" loading="lazy">
-<figcaption>Projeto 2</figcaption>
-</figure>
-</a>
+      <!-- CARD – exemplo 3 -->
+      <article class="card">
+        <a class="card-link" href="projetos/dark-trading.html">
+          <figure class="card-media">
+            <img src="img/thumbs/dark-trading.jpg" alt="UI escura para app de investimentos" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Trading App Dark</h2>
+            <p class="card-meta">UI/UX • Finance</p>
+            <ul class="card-tags"><li>UI</li><li>Acessibilidade</li></ul>
+          </div>
+        </a>
+      </article>
 
+      <!-- CARD – exemplo 4 -->
+      <article class="card">
+        <a class="card-link" href="projetos/web-dashboard.html">
+          <figure class="card-media">
+            <img src="img/thumbs/web-dashboard.jpg" alt="Dashboard web com gráficos" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Web Dashboard</h2>
+            <p class="card-meta">Web • DataViz</p>
+            <ul class="card-tags"><li>BI</li><li>Métricas</li></ul>
+          </div>
+        </a>
+      </article>
 
-<a class="gallery-item" href="#projeto-3" data-tags="viagem turismo identidade visual">
-<figure>
-<img src="Imagens/imgprojetos/Fotos da section projeto-3.png" alt="Recorte dos mockups da marca de viagem" loading="lazy">
-<figcaption>Projeto 3</figcaption>
-</figure>
-</a>
+      <!-- CARD – exemplo 5 -->
+      <article class="card">
+        <a class="card-link" href="projetos/brand-refresh.html">
+          <figure class="card-media">
+            <img src="img/thumbs/brand-refresh.jpg" alt="Capas com identidade visual reestilizada" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Brand Refresh</h2>
+            <p class="card-meta">Branding</p>
+            <ul class="card-tags"><li>Guia de Marca</li><li>Tipografia</li></ul>
+          </div>
+        </a>
+      </article>
 
+      <!-- CARD – exemplo 6 -->
+      <article class="card">
+        <a class="card-link" href="projetos/campaign-content.html">
+          <figure class="card-media">
+            <img src="img/thumbs/campaign-content.jpg" alt="Peças de campanha e carrosséis" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Campaign Content</h2>
+            <p class="card-meta">Conteúdo • Social</p>
+            <ul class="card-tags"><li>Calendário</li><li>Copy</li></ul>
+          </div>
+        </a>
+      </article>
+    </section>
+  </main>
 
-<!-- Adicione mais itens aqui mantendo a mesma estrutura -->
-</div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> Gi • Portfólio — Feito com ♥</p>
+    </div>
+  </footer>
 
-
-<div class="projetos__cta">
-<a class="btn-more" href="projetos.html">Voltar</a>
-</div>
-</section>
-</main>
-
-
-<script>
-function filtrar(){
-const termo = (document.getElementById('buscar').value || '').toLowerCase();
-const itens = document.querySelectorAll('#lista-projetos .gallery-item');
-itens.forEach((a)=>{
-const texto = a.innerText.toLowerCase();
-const tags = (a.getAttribute('data-tags')||'').toLowerCase();
-a.style.display = (!termo || texto.includes(termo) || tags.includes(termo)) ? '' : 'none';
-});
-}
-</script>
+  <script>
+    // atualiza ano
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
