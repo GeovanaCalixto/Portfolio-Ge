@@ -3,8 +3,8 @@
     --bg: #f7f7fb;
     --surface: #ffffff;
     --card: #ffffff;
-    --text: #222;
-    --muted: #5a5d6a;
+    --text: #3D3A3A;
+    --muted: #3D3A3A;
     --border: #e9e9ef;
     --shadow: 0 8px 20px rgba(0,0,0,.08);
   }
@@ -144,7 +144,7 @@ img{ max-width:100%; display:block; border:0 }
   display:inline-flex; align-items:center; justify-content:center;
   padding:10px 16px; border-radius:12px; border:1px solid var(--border);
   background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 40%, var(--card)), var(--card));
-  color:#fff; font-weight:600; margin-top:14px;
+  color: #EB866D; font-weight:600; margin-top:14px;
 }
 .btn:hover, .btn:focus-visible{
   outline:none; transform: translateY(-1px);
