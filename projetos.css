@@ -17,7 +17,7 @@ body {
   }
 
   h1, h2, h3, h4 {
-  font-weight:600;
+  font-weight:400;
   color:#3D3A3A;
 }
 
@@ -33,3 +33,44 @@ a:hover {
 
 
 /*Componentes especificos da página de projetos*/
+
+/* Botão */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #6a0dad; /* cor principal do botão */
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  background-color: #ff7f50; /* cor ao passar o mouse */
+  transform: translateY(-2px);
+}
+
+/* Card */
+.card {
+  background: #f8f8f8; /* fundo do card */
+  border: 1px solid #e0e0e0; /* cor da borda */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ----------------------------
+   🦶 Rodapé
+-----------------------------*/
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #222222;
+  border-top: 1px solid #e0e0e0;
+}
