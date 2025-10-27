@@ -1,13 +1,35 @@
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ }
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: aliceblue;
+  color: #3D3A3A;
 }
 
+.container {
+  width: min(1100px, 90%);
+  margin-inline: auto;
+  }
 
- body {
-  background-color: #f1f1ff
+  h1, h2, h3, h4 {
+  font-weight:600;
   color:#3D3A3A;
-  font-family: "Poppins", sans-serif;
 }
+
+.a {
+  color: #3D3A3A;
+  text-decoration: none;
+  transition: color 0.2 ease;
+}
+
+a:hover {
+  color: chocolate;
+}
+
+
+/*Componentes especificos da página de projetos*/
