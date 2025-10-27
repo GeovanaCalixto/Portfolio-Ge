@@ -650,7 +650,7 @@ div.experience-card{
 }
 
 
-/*section recomendações*/
+/*section projetos*/
 .recomendacoes {
   background: #fff; 
   color: #333;
@@ -675,7 +675,7 @@ div.experience-card{
 
 /* Footer */
 .footer {
-  background: #f9f9f9;
+  background: #d86f52;
   color: #3D3A3A;
   position: relative;
   padding-top: 40px;
