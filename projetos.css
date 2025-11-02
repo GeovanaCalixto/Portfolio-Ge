@@ -198,95 +198,17 @@ body {
 .btn-detalhes {
   text-decoration: none;
   font-weight:600;
-  background-color: #2f7be4;
+  background-color: #d86f52;
   color: #fff;
   padding: 8px 12px;
   border-radius: 10px;
   display: inline-block;
   width: max-content;
 }
-.btn-detalhes:hover { background-color: #245fc0; }
+.btn-detalhes:hover { background-color: #ffffff; }
 
 /* Hover do card */
 .card:hover, .card:focus {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-/* ===== MODAL ===== */
-
-/* Overlay (fundo escuro) */
-.modal-overlay {
-  display: none; /* escondido por padrão */
-  position: fixed;
-  inset: 0; /* top:0; left:0; right:0; bottom:0; */
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  z-index: 999;
-}
-
-/* Mostrar o overlay quando .active */
-.modal-overlay.active { display: flex; }
-
-/* Caixa do modal */
-.modal {
-  background: #fff;
-  width: 100%;
-  max-width: 980px;
-  border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Conteúdo interno: imagem + info lado a lado (desktop) */
-.modal-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-
-/* Imagem do modal */
-.modal-image img#modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display:block;
-  min-height: 320px;
-}
-
-/* Informações do projeto no modal */
-.modal-info {
-  padding: 28px;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-#modal-title { font-size: 1.6rem; color:#222; }
-.modal-sub { color:#666; font-size:1rem; }
-.modal-desc p { color:#444; line-height:1.6; }
-
-/* Ações (botões) */
-.modal-actions { display:flex; gap:12px; margin-top:8px; }
-
-/* Botão de fechar (x no canto) */
-.close-modal {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
-
-/* Responsive: modal empilha vertical em telas pequenas */
-@media (max-width: 720px) {
-  .modal-content { grid-template-columns: 1fr; }
-  .modal-image img#modal-img { min-height: 220px; }
-  .modal-info { padding: 20px; }
-}
-
+ }
