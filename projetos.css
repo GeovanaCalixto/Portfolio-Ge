@@ -1,58 +1,80 @@
-
+/* ======= RESET GERAL ======= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- }
+}
 
+/* ======= BASE DA PÁGINA ======= */
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: #FFFFFF;
-  color: #3D3A3A;  
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  line-height: 1.5;
+  padding: 40px;
 }
 
-.container {
-  width: min(900px, 90%);
-  margin-inline: auto;
-  }
-
-  h1, h2, h3, h4 {
-  font-weight:400;
-  color:#3D3A3A;
+/* ======= CONTAINER PRINCIPAL ======= */
+.container-galeria {
+  display: grid; /* cria a grade */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  /* auto-fit = adapta; minmax = mínimo 300px, máximo 1 fração */
+  gap: 24px; /* espaço entre os cards */
+  justify-content: center;
 }
 
-.a {
-  color: #3D3A3A;
-  text-decoration: none;
-  transition: color 0.2 ease;
-}
-
-a:hover {
-  color: chocolate;
-}
-
-
-/*Componentes especificos da página de projetos*/
- 
+/* ======= CARD ======= */
 .card {
-  background: #d86f52;
-  border-radius: 20px;
-  padding: 32px; /* aumentado */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease;
-  min-height: 220px; /* novo valor maior */
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden; /* pra borda da imagem seguir o card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
-/* ----------------------------
-   🦶 Rodapé
------------------------------*/
+/* ======= IMAGEM DO CARD ======= */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* garante que a imagem preencha o espaço sem distorcer */
+}
 
-footer {
-  text-align: center;
+/* ======= TEXTO DO CARD ======= */
+.info-card {
   padding: 20px;
-  color: #222222;
-  border-top: 1px solid #e0e0e0;
- }
+}
+
+.info-card h3 {
+  font-size: 1.25rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ======= BOTÃO DE DETALHES ======= */
+.btn-detalhes {
+  text-decoration: none;
+  font-weight: 500;
+  background-color: #0077ff;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-detalhes:hover {
+  background-color: #005ed9;
+}
+
+/* ======= EFEITO HOVER NO CARD ======= */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
 }

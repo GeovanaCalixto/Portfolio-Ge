@@ -7,115 +7,35 @@
   <link rel="stylesheet" href="projetos.css" />
   </head>
 
-<body>
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Projetos</h1>
-        <p>Seleção de cases em <strong>UI/UX, branding, conteúdo e web</strong>. Clique para ver o detalhe do projeto.</p>
-   </div>
-    </section>
-<br> <br>
-    <section class="gallery container">
-      <!-- CARD – exemplo 1 -->
-      <article class="card">
-        <a class="card-link" href="projetos/crypto-wallet.html" aria-label="Abrir projeto Crypto Wallet">
-          <figure class="card-media">
-            <!-- Substitua pelo seu thumbnail 1200x900 ou 1600x1200 -->
-            <img src="img/thumbs/crypto-wallet.jpg" alt="Screens da interface de uma crypto wallet com gráficos e listas" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Crypto Wallet</h2>
-            <p class="card-meta">UI/UX • App • Fintech</p>
-            <ul class="card-tags" aria-label="Tags do projeto">
-              <li>UI</li><li>Mobile</li><li>Design System</li>
-            </ul>
-          </div>
-        </a>
-      </article>
-
-      <!-- CARD – exemplo 2 -->
-      <article class="card">
-        <a class="card-link" href="projetos/app-marketplace.html">
-          <figure class="card-media">
-            <img src="img/thumbs/app-marketplace.jpg" alt="Mockups de app marketplace com telas coloridas" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">App Marketplace</h2>
-            <p class="card-meta">UI/UX • Mobile</p>
-            <ul class="card-tags"><li>UX</li><li>Pesquisa</li><li>Prototipação</li></ul>
-          </div>
-        </a>
-      </article>
-
-      <!-- CARD – exemplo 3 -->
-      <article class="card">
-        <a class="card-link" href="projetos/dark-trading.html">
-          <figure class="card-media">
-            <img src="img/thumbs/dark-trading.jpg" alt="UI escura para app de investimentos" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Trading App Dark</h2>
-            <p class="card-meta">UI/UX • Finance</p>
-            <ul class="card-tags"><li>UI</li><li>Acessibilidade</li></ul>
-          </div>
-        </a>
-      </article>
-
-      <!-- CARD – exemplo 4 -->
-      <article class="card">
-        <a class="card-link" href="projetos/web-dashboard.html">
-          <figure class="card-media">
-            <img src="img/thumbs/web-dashboard.jpg" alt="Dashboard web com gráficos" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Web Dashboard</h2>
-            <p class="card-meta">Web • DataViz</p>
-            <ul class="card-tags"><li>BI</li><li>Métricas</li></ul>
-          </div>
-        </a>
-      </article>
-
-      <!-- CARD – exemplo 5 -->
-      <article class="card">
-        <a class="card-link" href="projetos/brand-refresh.html">
-          <figure class="card-media">
-            <img src="img/thumbs/brand-refresh.jpg" alt="Capas com identidade visual reestilizada" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Brand Refresh</h2>
-            <p class="card-meta">Branding</p>
-            <ul class="card-tags"><li>Guia de Marca</li><li>Tipografia</li></ul>
-          </div>
-        </a>
-      </article>
-
-      <!-- CARD – exemplo 6 -->
-      <article class="card">
-        <a class="card-link" href="projetos/campaign-content.html">
-          <figure class="card-media">
-            <img src="img/thumbs/campaign-content.jpg" alt="Peças de campanha e carrosséis" loading="lazy">
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Campaign Content</h2>
-            <p class="card-meta">Conteúdo • Social</p>
-            <ul class="card-tags"><li>Calendário</li><li>Copy</li></ul>
-          </div>
-        </a>
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="y"></span> Ge • Portfólio — Feito com ♥</p>
+<section class="galeria">
+  <div class="container-galeria">
+    
+    <div class="card">
+      <img src="img/projeto1.jpg" alt="Projeto 1">
+      <div class="info-card">
+        <h3>Dashboard SaaS</h3>
+        <p>Painel de controle interativo com design minimalista.</p>
+        <a href="projeto1.html" class="btn-detalhes">Ver detalhes</a>
+      </div>
     </div>
-  </footer>
 
-  <script>
-    // atualiza ano
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <div class="card">
+      <img src="img/projeto2.jpg" alt="Projeto 2">
+      <div class="info-card">
+        <h3>App Financeiro</h3>
+        <p>Aplicativo com visual limpo e gráfico de desempenho.</p>
+        <a href="projeto2.html" class="btn-detalhes">Ver detalhes</a>
+      </div>
+    </div>
 
+    <div class="card">
+      <img src="img/projeto3.jpg" alt="Projeto 3">
+      <div class="info-card">
+        <h3>Portal de Cursos</h3>
+        <p>Interface intuitiva para e-learning e comunidade online.</p>
+        <a href="projeto3.html" class="btn-detalhes">Ver detalhes</a>
+      </div>
+    </div>
+
+  </div>
+</section>
