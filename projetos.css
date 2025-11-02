@@ -130,14 +130,14 @@ body {
 .btn-detalhes {
   text-decoration: none;
   font-weight:600;
-  background-color: #2f7be4;
-  color: #fff;
+  background-color:#d86f52;
+  color: #444;
   padding: 8px 12px;
   border-radius: 10px;
   display: inline-block;
   width: max-content;
 }
-.btn-detalhes:hover { background-color: #245fc0; }
+.btn-detalhes:hover { background-color:#fff; }
 
 /* Hover do card */
 .card:hover, .card:focus {
