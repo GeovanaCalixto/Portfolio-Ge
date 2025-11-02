@@ -104,8 +104,7 @@ const modalImg = document.getElementById('modal-img');
 const modalTitle = document.getElementById('modal-title');
 const modalSub = document.getElementById('modal-sub');
 const modalDesc = document.getElementById('modal-desc');
-const modalLink = document.getElementById('modal-link');
-
+ 
 const openBtns = document.querySelectorAll('.open-modal'); // botões "Ver detalhes"
 const cards = document.querySelectorAll('.card'); // também permitimos clique no card todo
 
@@ -118,7 +117,7 @@ function openModalFromCard(cardElement) {
   const subtitle = cardElement.dataset.subtitle || '';
   const desc = cardElement.dataset.desc || '';
   const img = cardElement.dataset.img || '';
-  const link = cardElement.dataset.link || '#';
+
 
   // preenche o modal
   modalTitle.textContent = title;
@@ -126,8 +125,7 @@ function openModalFromCard(cardElement) {
   modalDesc.innerHTML = '<p>' + desc + '</p>';
   modalImg.src = img;
   modalImg.alt = title + ' — imagem';
-  modalLink.href = link;
-
+ 
   // mostra o modal
   modalOverlay.classList.add('active');
   modalOverlay.setAttribute('aria-hidden', 'false');
