@@ -9,36 +9,79 @@
 
 
 <body>
+<!-- GALERIA -->
 <section class="galeria">
   <div class="container-galeria">
-    
-    <div class="card">
-      <img src="img/projeto1.jpg" alt="Projeto 1">
-      <div class="info-card">
-        <h3>Dashboard SaaS</h3>
-        <p>Painel de controle interativo com design minimalista.</p>
-        <a href="projeto1.html" class="btn-detalhes">Ver detalhes</a>
-      </div>
-    </div>
 
-    <div class="card">
-      <img src="img/projeto2.jpg" alt="Projeto 2">
+    <article class="card" tabindex="0"
+             data-title="Dashboard SaaS"
+             data-subtitle="Painel de controle interativo"
+             data-desc="Projeto focado em análise de campanhas com gráficos interativos e otimização de funnels."
+             data-img="imagens/projeto1.jpg"
+             data-link="https://exemplo.com/projeto1">
+      <img src="imagens/projeto1.jpg" alt="Dashboard SaaS - capa">
       <div class="info-card">
-        <h3>App Financeiro</h3>
-        <p>Aplicativo com visual limpo e gráfico de desempenho.</p>
-        <a href="projeto2.html" class="btn-detalhes">Ver detalhes</a>
+        <h3 class="card-title">Dashboard SaaS</h3>
+        <p class="card-sub">Painel de controle interativo</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do Dashboard SaaS">Ver detalhes</a>
       </div>
-    </div>
+    </article>
 
-    <div class="card">
-      <img src="img/projeto3.jpg" alt="Projeto 3">
+    <article class="card" tabindex="0"
+             data-title="App Financeiro"
+             data-subtitle="Controle financeiro pessoal"
+             data-desc="Aplicativo com visual limpo, gráficos e integração bancária."
+             data-img="imagens/projeto2.jpg"
+             data-link="https://exemplo.com/projeto2">
+      <img src="imagens/projeto2.jpg" alt="App Financeiro - capa">
       <div class="info-card">
-        <h3>Portal de Cursos</h3>
-        <p>Interface intuitiva para e-learning e comunidade online.</p>
-        <a href="projeto3.html" class="btn-detalhes">Ver detalhes</a>
+        <h3 class="card-title">App Financeiro</h3>
+        <p class="card-sub">Controle financeiro pessoal</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do App Financeiro">Ver detalhes</a>
       </div>
-    </div>
+    </article>
+
+    <article class="card" tabindex="0"
+             data-title="Portal de Cursos"
+             data-subtitle="Plataforma e-learning"
+             data-desc="Plataforma com módulos, quizzes e comunidade integrada."
+             data-img="imagens/projeto3.jpg"
+             data-link="https://exemplo.com/projeto3">
+      <img src="imagens/projeto3.jpg" alt="Portal de Cursos - capa">
+      <div class="info-card">
+        <h3 class="card-title">Portal de Cursos</h3>
+        <p class="card-sub">Plataforma e-learning</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do Portal de Cursos">Ver detalhes</a>
+      </div>
+    </article>
 
   </div>
- </section>
+</section>
 
+<!-- MODAL (incluir no final do body) -->
+<div class="modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close-modal" aria-label="Fechar modal">&times;</button>
+
+    <div class="modal-content">
+      <div class="modal-image">
+        <img src="" alt="" id="modal-img">
+      </div>
+
+      <div class="modal-info">
+        <h2 id="modal-title">Título do Projeto</h2>
+        <p class="modal-sub" id="modal-sub">Subtítulo</p>
+        <div class="modal-desc" id="modal-desc">
+          <p>Descrição do projeto...</p>
+        </div>
+
+        <div class="modal-actions">
+          <a id="modal-link" class="btn-detalhes" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          <button class="btn-detalhes close-modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
