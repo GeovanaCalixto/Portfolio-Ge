@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  width: min(1100px, 90%);
+  width: min(900px, 90%);
   margin-inline: auto;
   }
 
