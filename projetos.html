@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="projetos.css" />
   </head>
 
+
+<body>
 <section class="galeria">
   <div class="container-galeria">
     
@@ -39,3 +41,208 @@
 
   </div>
 </section>
+
+<!-- GALERIA -->
+<section class="galeria">
+  <div class="container-galeria">
+
+    <article class="card" tabindex="0"
+             data-title="Dashboard SaaS"
+             data-subtitle="Painel de controle interativo"
+             data-desc="Projeto focado em análise de campanhas com gráficos interativos e otimização de funnels."
+             data-img="imagens/projeto1.jpg"
+             data-link="https://exemplo.com/projeto1">
+      <img src="imagens/projeto1.jpg" alt="Dashboard SaaS - capa">
+      <div class="info-card">
+        <h3 class="card-title">Dashboard SaaS</h3>
+        <p class="card-sub">Painel de controle interativo</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do Dashboard SaaS">Ver detalhes</a>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0"
+             data-title="App Financeiro"
+             data-subtitle="Controle financeiro pessoal"
+             data-desc="Aplicativo com visual limpo, gráficos e integração bancária."
+             data-img="imagens/projeto2.jpg"
+             data-link="https://exemplo.com/projeto2">
+      <img src="imagens/projeto2.jpg" alt="App Financeiro - capa">
+      <div class="info-card">
+        <h3 class="card-title">App Financeiro</h3>
+        <p class="card-sub">Controle financeiro pessoal</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do App Financeiro">Ver detalhes</a>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0"
+             data-title="Portal de Cursos"
+             data-subtitle="Plataforma e-learning"
+             data-desc="Plataforma com módulos, quizzes e comunidade integrada."
+             data-img="imagens/projeto3.jpg"
+             data-link="https://exemplo.com/projeto3">
+      <img src="imagens/projeto3.jpg" alt="Portal de Cursos - capa">
+      <div class="info-card">
+        <h3 class="card-title">Portal de Cursos</h3>
+        <p class="card-sub">Plataforma e-learning</p>
+        <a class="btn-detalhes open-modal" href="#" aria-label="Abrir detalhes do Portal de Cursos">Ver detalhes</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- MODAL (incluir no final do body) -->
+<div class="modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close-modal" aria-label="Fechar modal">&times;</button>
+
+    <div class="modal-content">
+      <div class="modal-image">
+        <img src="" alt="" id="modal-img">
+      </div>
+
+      <div class="modal-info">
+        <h2 id="modal-title">Título do Projeto</h2>
+        <p class="modal-sub" id="modal-sub">Subtítulo</p>
+        <div class="modal-desc" id="modal-desc">
+          <p>Descrição do projeto...</p>
+        </div>
+
+        <div class="modal-actions">
+          <a id="modal-link" class="btn-detalhes" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          <button class="btn-detalhes close-modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ===== Seletores ===== */
+const modalOverlay = document.querySelector('.modal-overlay');
+const modal = document.querySelector('.modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalSub = document.getElementById('modal-sub');
+const modalDesc = document.getElementById('modal-desc');
+const modalLink = document.getElementById('modal-link');
+
+const openBtns = document.querySelectorAll('.open-modal'); // botões "Ver detalhes"
+const cards = document.querySelectorAll('.card'); // também permitimos clique no card todo
+
+let lastFocusedElement = null; // para devolver foco depois de fechar
+
+/* ===== Função para abrir e preencher o modal ===== */
+function openModalFromCard(cardElement) {
+  // pega dados do card via data-attributes
+  const title = cardElement.dataset.title || '';
+  const subtitle = cardElement.dataset.subtitle || '';
+  const desc = cardElement.dataset.desc || '';
+  const img = cardElement.dataset.img || '';
+  const link = cardElement.dataset.link || '#';
+
+  // preenche o modal
+  modalTitle.textContent = title;
+  modalSub.textContent = subtitle;
+  modalDesc.innerHTML = '<p>' + desc + '</p>';
+  modalImg.src = img;
+  modalImg.alt = title + ' — imagem';
+  modalLink.href = link;
+
+  // mostra o modal
+  modalOverlay.classList.add('active');
+  modalOverlay.setAttribute('aria-hidden', 'false');
+
+  // trava scroll do body
+  document.body.style.overflow = 'hidden';
+
+  // gestão de foco
+  lastFocusedElement = document.activeElement;
+  const focusable = modal.querySelectorAll('button, [href], input, textarea, select');
+  if (focusable.length) focusable[0].focus();
+}
+
+/* ===== Função para fechar o modal ===== */
+function closeModal() {
+  modalOverlay.classList.remove('active');
+  modalOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = ''; // libera scroll
+
+  // devolver foco ao elemento anterior
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+/* ===== Eventos: abrir com o botão "Ver detalhes" ===== */
+openBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // encontra o card pai mais próximo
+    const card = btn.closest('.card');
+    if (card) openModalFromCard(card);
+  });
+});
+
+/* ===== Também permitir abrir clicando no card inteiro ===== */
+cards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    // evita que clicar no link interno abra duas vezes
+    const targetIsLink = e.target.closest('a');
+    if (targetIsLink) return;
+    openModalFromCard(card);
+  });
+
+  // abrir via teclado (Enter)
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModalFromCard(card);
+    }
+  });
+});
+
+/* ===== Fechar: botões que fecham o modal (x e botão fechar) ===== */
+const closeButtons = document.querySelectorAll('.close-modal');
+closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+
+/* ===== Fechar clicando no overlay (fora da caixa) ===== */
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+
+/* ===== Fechar com Escape ===== */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+/* ===== Focus trap simples dentro do modal ===== */
+modalOverlay.addEventListener('keydown', function(e) {
+  if (!modalOverlay.classList.contains('active')) return;
+
+  const focusable = modal.querySelectorAll('a[href], button:not([disabled]), input, textarea, select');
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.key === 'Tab') {
+    if (e.shiftKey) { // shift + tab
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else { // tab
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+});
+</script>
+
+
+</body>
