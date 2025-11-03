@@ -1066,10 +1066,9 @@ p.small {
       padding: 60px 20px;
     }
 
-    .projetos {
-      width: 100%;
-      max-width: 1200px;
-      text-align: center;
-    }
+    .section-projetos {
+  padding: 80px 50px;
+}
+
   }
 }
