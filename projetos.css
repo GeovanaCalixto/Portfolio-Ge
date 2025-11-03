@@ -10,7 +10,7 @@
 
 body {
   background: #F5F5F5;
-  color: #222222;
+  color: #555555;
 }
 
  
@@ -50,19 +50,19 @@ body {
 
 .card h3 {
   font-size: 18px;
-  color: #111111;
+  color: #555555;
 }
 
 .card p {
   font-size: 14px;
-  color: #666666;
+  color: #555555;
 }
 
 .card button {
   margin-top: auto;
   padding: 10px;
   background: #E56A00;
-  color: #444444;
+  color: #555555;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -124,7 +124,7 @@ body {
 #modalTitle {
   font-size: 26px;
   margin-bottom: 5px;
-  color: #111111;
+  color: #555555;
 }
 
 #modalCategory {
