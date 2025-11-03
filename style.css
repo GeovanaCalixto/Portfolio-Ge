@@ -1067,8 +1067,16 @@ p.small {
     }
 
     .section-projetos {
-  padding: 80px 60px;
-}
+      padding: 80px 50px;
+    }
+
+    .section-projetos .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      
+    }
+
 
   }
 }
