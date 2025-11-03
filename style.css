@@ -1065,60 +1065,67 @@ p.small {
     .recomendacoes {
       padding: 60px 20px;
     }
-   }
   }
+}
 
-    /* ========== SECTION PROJETOS ========== */
-    .section-projetos {
-      padding: 100px 50px;
-      text-align: center;
-      background-color: #f9f9f9;
-      /* provisório, depois mudamos */
-    }
+/* ========== SECTION PROJETOS ========== */
+.section-projetos {
+  padding: 100px 50px;
+  text-align: center;
+  background-color: #f9f9f9;
+  /* provisório, depois mudamos */
+}
 
-    .projetos-container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-    }
+.iconeprojeto {
+  display: flex;
+  gap: 15px;
+  /* espaçamento entre os ícones */
+  align-items: center;
+}
 
-    .projetos-titulo {
-      font-size: 36px;
-      color: #3D3A3A;
-      font-weight: 700;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+.projetos-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
 
-    .projetos-titulo i {
-      font-size: 45px;
-    }
+.projetos-titulo {
+  font-size: 36px;
+  color: #3D3A3A;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    .projetos-descricao {
-      font-size: 18px;
-      color: #3D3A3A;
-      line-height: 1.6;
-      max-width: 750px;
-    }
+.projetos-titulo i {
+  font-size: 45px;
+}
 
-    .projetos-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 8px;
-      background-color:#EB866D;
-      /* muda depois */
-      color: #3D3A3A;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+.projetos-descricao {
+  font-size: 18px;
+  color: #3D3A3A;
+  line-height: 1.6;
+  max-width: 750px;
+}
 
-    .projetos-btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
+.projetos-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #EB866D;
+  /* muda depois */
+  color: #3D3A3A;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.projetos-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
