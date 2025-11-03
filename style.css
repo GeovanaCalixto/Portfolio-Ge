@@ -1076,12 +1076,11 @@ p.small {
   /* provisório, depois mudamos */
 }
 
-.iconeprojeto {
-   display: flex;
-   width: 70px;
-   align-items: center;
+.section-projetos .iconeprojeto img {
+  width: 60px;                   /* Tamanho do ícone (você escolheu tamanho B) */
+  display: block;
+  margin: 0 auto 12px auto;      /* Centraliza + espaçamento pequeno abaixo */
 }
-
 .projetos-container {
   max-width: 900px;
   margin: 0 auto;
