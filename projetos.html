@@ -11,167 +11,90 @@
 <body>
 
   <!-- ================= GALERIA ================= -->
-  <section class="galeria">
-    <div class="container-galeria">
+  <section id="projetos" class="section-projetos">
 
-      <!-- CARD 1 -->
-      <article class="card" tabindex="0" data-title="Stand de vendas | Epadoca" data-subtitle="Identidade visual e a presença estratégica da marca"
-        data-img="Imagens/imgprojetos/Stand Epadoca.jpg"
-        data-desc="<p>Descrição longa com imagens e texto formatado.</p>" data-pdfs="arquivos/manual.pdf"
-        data-links="https://meuprojeto.com">
+  <div class="projetos-grid">
 
-        <img src="Imagens/imgprojetos/Stand Epadoca.jpg" alt="Imagem do projeto">
-        <h3>Stand de vendas | Epadoca</h3>
-        <p>Identidade visual e a presença estratégica da marca</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </article>
-
-      <!-- CARD 2 -->
-      <article class="card" tabindex="0" data-title="Outro projeto" data-subtitle="Categoria"
-        data-img="imagens/projeto3.jpg" data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
-        data-links="https://meuprojeto.com">
-
-        <img src="imagens/projeto3.jpg" alt="Imagem do projeto">
-        <h3>Título</h3>
-        <p>Categoria</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </article>
-
-      <!-- CARD 3 -->
-      <article class="card" tabindex="0" data-title="Mais um projeto" data-subtitle="Categoria"
-        data-img="imagens/projeto3.jpg" data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
-        data-links="https://meuprojeto.com">
-
-        <img src="imagens/projeto3.jpg" alt="Imagem do projeto">
-        <h3>Título</h3>
-        <p>Categoria</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </article>
-
-    </div> <!-- fecha .container-galeria -->
-  </section>
-  <!-- =============== FIM DA GALERIA =============== -->
-
-
-  <!-- ================= MODAL ================= -->
-  <div class="modal-overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-
-      <button class="close-modal" aria-label="Fechar modal">&times;</button>
-
-      <div class="modal-content">
-
-        <!-- Imagem destacada -->
-        <div class="modal-image">
-          <img src="" alt="" id="modal-img">
-        </div>
-
-        <!-- Conteúdo -->
-        <div class="modal-info">
-          <h2 id="modal-title">Título do Projeto</h2>
-          <p class="modal-sub" id="modal-sub">Subtítulo</p>
-
-          <div class="modal-desc" id="modal-desc">
-            <p>Descrição do projeto...</p>
-          </div>
-
-          <!-- Botões -->
-          <div class="modal-actions">
-            <button class="btn-detalhes close-modal">Fechar</button>
-          </div>
-
-        </div>
+    <!-- CARD 1 -->
+    <div class="projeto-card">
+      <img src="Imagens/projeto1.jpg" alt="Imagem do projeto" class="projeto-img">
+      <div class="projeto-info">
+        <h3 class="projeto-titulo">Stand de vendas | Epadoca</h3>
+        <p class="projeto-cat">Identidade visual e presença estratégica da marca</p>
+        <button class="btn-detalhes" data-modal="modal1">Ver detalhes</button>
       </div>
     </div>
+
+    <!-- CARD 2 -->
+    <div class="projeto-card">
+      <img src="Imagens/projeto2.jpg" alt="Imagem do projeto" class="projeto-img">
+      <div class="projeto-info">
+        <h3 class="projeto-titulo">Título do Projeto</h3>
+        <p class="projeto-cat">Categoria</p>
+        <button class="btn-detalhes" data-modal="modal2">Ver detalhes</button>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="projeto-card">
+      <img src="Imagens/projeto3.jpg" alt="Imagem do projeto" class="projeto-img">
+      <div class="projeto-info">
+        <h3 class="projeto-titulo">Título do Projeto</h3>
+        <p class="projeto-cat">Categoria</p>
+        <button class="btn-detalhes" data-modal="modal3">Ver detalhes</button>
+      </div>
+    </div>
+
+    <!-- CARD EXTRA -->
+    <div class="projeto-card">
+      <img src="Imagens/projeto4.jpg" alt="Imagem do projeto" class="projeto-img">
+      <div class="projeto-info">
+        <h3 class="projeto-titulo">Título do Projeto</h3>
+        <p class="projeto-cat">Categoria</p>
+        <button class="btn-detalhes" data-modal="modal4">Ver detalhes</button>
+      </div>
+    </div>
+
   </div>
-  <!-- =============== FIM MODAL =============== -->
+</section>
 
+<!-- ✅ MODAL BASE (apenas um modelo, você duplica e edita o conteúdo) -->
+<div id="modal1" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close">×</button>
+    <h2 class="modal-title">Stand de vendas | Epadoca</h2>
+    <p class="modal-text">
+      Texto descritivo do projeto, com imagens, passos, links etc.<br>
+      Aqui você pode inserir quantas imagens quiser.
+    </p>
+  </div>
+</div>
 
-  <!-- ================= JAVASCRIPT ================= -->
-  <script>
-    /* ===== Seletores ===== */
-    const modalOverlay = document.querySelector('.modal-overlay');
-    const modal = document.querySelector('.modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalTitle = document.getElementById('modal-title');
-    const modalSub = document.getElementById('modal-sub');
-    const modalDesc = document.getElementById('modal-desc');
+<div id="modal2" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close">×</button>
+    <h2 class="modal-title">Título do projeto</h2>
+    <p class="modal-text">Descrição do projeto...</p>
+  </div>
+</div>
 
-    const openBtns = document.querySelectorAll('.open-modal');
-    const cards = document.querySelectorAll('.card');
+<!-- etc... -->
 
-    let lastFocusedElement = null;
+<script>
+  const openBtns = document.querySelectorAll(".btn-detalhes");
+  const closeBtns = document.querySelectorAll(".modal-close");
 
-    /* ===== Abrir modal ===== */
-     function openModalFromCard(cardElement) {
-      const title = cardElement.dataset.title || '';
-      const subtitle = cardElement.dataset.subtitle || '';
-      const desc = cardElement.dataset.desc || '';
-      const img = cardElement.dataset.img || '';
+  openBtns.forEach(btn =>
+    btn.addEventListener("click", () => {
+      const modalId = btn.getAttribute("data-modal");
+      document.getElementById(modalId).classList.add("active");
+    })
+  );
+
+  closeBtns.forEach(btn =>
+    btn.addEventListener("click", () =>
+      btn.parentElement.parentElement.classList.remove("active")
+    )
+  );
+</script>
  
-      modalTitle.textContent = title;
-      modalSub.textContent = subtitle;
-      modalDesc.innerHTML = desc; // ✅ agora insere HTML sem <p> duplicado
-      modalImg.src = img;
-      modalImg.alt = title + ' — imagem';
-
-       modalOverlay.classList.add('active');
-       modalOverlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
- 
-      lastFocusedElement = document.activeElement;
-      const focusable = modal.querySelectorAll('button, [href], input, textarea, select');
-      if (focusable.length) focusable[0].focus();
-    }
-
-    /* ===== Fechar modal ===== */
-    function closeModal() {
-      modalOverlay.classList.remove('active');
-      modalOverlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
- 
-      if (lastFocusedElement) lastFocusedElement.focus();
-    }
-
-    /* ===== Abrir com botão ===== */
-    openBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-         const card = btn.closest('.card');
-        if (card) openModalFromCard(card);
-      });
-    });
-
-    /* ===== Abrir clicando no card inteiro ===== */
-    cards.forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('a')) return;
-        openModalFromCard(card);
-      });
-  
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModalFromCard(card);
-        }
-      });
-    });
-
-    /* ===== Fechar (botão X e botão Fechar) ===== */
-    document.querySelectorAll('.close-modal')
-      .forEach(btn => btn.addEventListener('click', closeModal));
-
-    /* ===== Fechar clicando fora ===== */
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-
-    /* ===== ESC fecha ===== */
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-        closeModal();
-      }
-    });
-   </script>
-
- </body>

@@ -1,213 +1,121 @@
-/* ================== RESET GERAL ================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-:focus-visible {
-  outline: 2px solid #ff0088;
-  outline-offset: 2px;
-}
-
-/* ================== BASE DA PÁGINA ================== */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f6fa;
-  color: #222222;
-  line-height: 1.5;
-  padding: 32px;
-}
-
-/* ================== GRID DOS CARDS ================== */
-.container-galeria {
+/* GRID DOS CARDS */
+.projetos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* ================== CARD ================== */
-.card {
-  background-color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px #00000012;
-  overflow: hidden;
-  transition: transform .28s ease, box-shadow .28s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-/* Imagem do card */
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-/* Conteúdo do card */
-.info-card {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: auto;
-}
-.info-card h3 {
-  font-size: 1.08rem;
-  color: #222222;
-}
-.info-card p {
-  font-size: 0.95rem;
-  color: #666666;
-}
-
-/* Botão dentro do card */
-.btn-detalhes {
-  text-decoration: none;
-  font-weight: 600;
-  background-color: #d86f52;
-  color: #ffffff;
-  padding: 8px 12px;
+/* CARD */
+.projeto-card {
+  background: #FFFFFF;
   border-radius: 10px;
-  display: inline-block;
-}
-.btn-detalhes:hover {
-  background-color: #ffffff;
-  color: #d86f52;
-  border: 2px solid #d86f52;
-}
-
-/* Hover do card */
-.card:hover,
-.card:focus {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px #0000001f;
-}
-
-/* ================== MODAL (OVERLAY) ================== */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: #00000066; /* overlay preto 40% */
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  z-index: 999;
-}
-
-/* Mostrar modal */
-.modal-overlay.active {
+  box-shadow: 0px 4px 14px #0000001A;
+   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* ================== CAIXA DO MODAL ================== */
-.modal {
-  background-color: #ffffff;
+.projeto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 18px #00000033;
+}
+
+/* IMAGEM DO CARD */
+.projeto-img {
   width: 100%;
-  max-width: 980px;
-  border-radius: 14px;
-  box-shadow: 0 20px 60px #00000040;
-  overflow: hidden;
-  position: relative;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
-/* Corpo interno do modal */
-.modal-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+/* TEXTO DO CARD */
+.projeto-info {
+  padding: 15px 18px;
 }
 
-/* Imagem do modal */
-.modal-image img {
+.projeto-titulo {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #000000;
+}
+
+.projeto-cat {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 14px;
+}
+
+/* BOTÃO DO CARD */
+ .btn-detalhes {
+  display: inline-block;
+  background: #FF7A00;
+  color: #FFFFFF;
+  font-size: 15px;
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.btn-detalhes:hover {
+  background: #E86D00;
+}
+
+/* ✅ MODAL */
+ .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  min-height: 320px;
+  background: #00000080;
+  /* preto com alpha */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* Informações do modal */
-.modal-info {
-  padding: 28px;
+ .modal-overlay.active {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-#modal-title {
-  font-size: 1.6rem;
-  color: #222222;
-}
-.modal-sub {
-  font-size: 1rem;
-  color: #666666;
-}
-.modal-desc p {
-  color: #444444;
-  line-height: 1.6;
 }
 
-/* Links e anexos */
-.modal-links a {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  background-color: #d86f52;
-  color: #ffffff;
-  font-weight: 500;
-  transition: transform 0.2s ease;
-}
-.modal-links a:hover {
-  transform: translateY(-2px);
+.modal-content {
+  background: #FFFFFF;
+  max-width: 850px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0px 6px 20px #00000040;
 }
 
-/* Botões finais do modal */
-.modal-actions {
-  margin-top: 12px;
-  display: flex;
-  gap: 10px;
-}
-.modal-actions button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 10px;
-  background-color: #d86f52;
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.modal-actions button:hover {
-  background-color: #ffffff;
-  color: #d86f52;
-  border: 2px solid #d86f52;
-}
-
-/* Botão X fechar */
-.close-modal {
+/* BOTÃO FECHAR */
+.modal-close {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 14px;
   background: none;
   border: none;
-  font-size: 26px;
-  font-weight: bold;
-  color: #333333;
+  font-size: 28px;
   cursor: pointer;
+  color: #000000;
 }
 
-/* ================== RESPONSIVO ================== */
-@media (max-width: 720px) {
-  .modal-content {
-    grid-template-columns: 1fr;
-  }
-  .modal-image img {
-    min-height: 220px;
-  }
-  .modal-info {
-    padding: 20px;
-  }
+.modal-title {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.modal-text {
+  font-size: 16px;
+  color: #444444;
+  line-height: 1.6;
 }
