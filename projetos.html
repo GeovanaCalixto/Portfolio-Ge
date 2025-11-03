@@ -18,10 +18,8 @@
   <div class="container">
 
     <!-- CARD 1 -->
-    <div class="card"
-      data-title="Stand de vendas | Epadoca"
-      data-category="Identidade visual e presença estratégica da marca"
-      data-image="img/epadoca.jpg"
+    <div class="card" data-title="Stand de vendas | Epadoca"
+      data-category="Identidade visual e presença estratégica da marca" data-image="img/epadoca.jpg"
       data-desc="<p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p><p><a href='https://site.com' target='_blank'>Link do projeto</a></p><p><a href='documento.pdf' target='_blank'>Baixar PDF</a></p>"
       data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg">
 
@@ -32,10 +30,7 @@
     </div>
 
     <!-- CARD 2 -->
-    <div class="card"
-      data-title="Projeto 2"
-      data-category="Categoria B"
-      data-image="img/projeto2.jpg"
+    <div class="card" data-title="Projeto 2" data-category="Categoria B" data-image="img/projeto2.jpg"
       data-desc="<p>Descrição do segundo projeto com mais detalhes, textos e links.</p>"
       data-gallery="img/extra4.jpg,img/extra5.jpg">
 
@@ -61,52 +56,53 @@
 
   <script>
     const modal = document.getElementById("modal");
-const closeModal = document.getElementById("closeModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalCategory = document.getElementById("modalCategory");
-const modalDesc = document.getElementById("modalDesc");
-const modalGallery = document.getElementById("modalGallery");
+    const closeModal = document.getElementById("closeModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalGallery = document.getElementById("modalGallery");
 
-// Abre o modal
-document.querySelectorAll(".open-modal").forEach(button => {
-  button.addEventListener("click", e => {
-    const card = e.target.closest(".card");
+    // Abre o modal
+    document.querySelectorAll(".open-modal").forEach(button => {
+      button.addEventListener("click", e => {
+        const card = e.target.closest(".card");
 
-    modalImage.src = card.dataset.image;
-    modalTitle.textContent = card.dataset.title;
-    modalCategory.textContent = card.dataset.category;
-    modalDesc.innerHTML = card.dataset.desc;
+        modalImage.src = card.dataset.image;
+        modalTitle.textContent = card.dataset.title;
+        modalCategory.textContent = card.dataset.category;
+        modalDesc.innerHTML = card.dataset.desc;
 
-    modalGallery.innerHTML = "";
-    if (card.dataset.gallery) {
-      card.dataset.gallery.split(",").forEach(src => {
-        const img = document.createElement("img");
-        img.src = src.trim();
-        modalGallery.appendChild(img);
+        modalGallery.innerHTML = "";
+        if (card.dataset.gallery) {
+          card.dataset.gallery.split(",").forEach(src => {
+            const img = document.createElement("img");
+            img.src = src.trim();
+            modalGallery.appendChild(img);
+          });
+        }
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
       });
-    }
+    });
 
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-});
+    // Fecha modal pelo botão
+    closeModal.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
 
-// Fecha modal pelo botão
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
-
-// Fecha modal clicando fora
-modal.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
+    // Fecha modal clicando fora
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
 
   </script>
 
 </body>
-</html>
+
+ </html>
