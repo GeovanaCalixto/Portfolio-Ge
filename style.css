@@ -1072,7 +1072,7 @@ p.small {
     .section-projetos {
       padding: 100px 50px;
       text-align: center;
-      background-color: #f5f5f5;
+      background-color: #FFFFFF;
       /* provisório, depois mudamos */
     }
 
@@ -1087,6 +1087,7 @@ p.small {
 
     .projetos-titulo {
       font-size: 36px;
+      color: #3D3A3A;
       font-weight: 700;
       display: flex;
       flex-direction: column;
@@ -1099,6 +1100,7 @@ p.small {
 
     .projetos-descricao {
       font-size: 18px;
+      color: #3D3A3A;
       line-height: 1.6;
       max-width: 750px;
     }
@@ -1109,9 +1111,9 @@ p.small {
       font-size: 18px;
       font-weight: 600;
       border-radius: 8px;
-      background-color: #000;
+      background-color:#EB866D;
       /* muda depois */
-      color: #fff;
+      color: #3D3A3A;
       text-decoration: none;
       transition: 0.3s;
     }
