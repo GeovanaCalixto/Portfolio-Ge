@@ -1,125 +1,166 @@
-/* ===== COLORS (HEX) ===== */
-:root {
-    --white: #FFFFFF;
-    --black: #000000;
-    --gray-text: #555555;
-    --gray-light: #F4F4F4;
-    --border: #E3E3E3;
-    --card-shadow: #00000010;
-    --orange: #FF7A00;
+/* =====================
+   BASE & RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* ===== GLOBAL ===== */
 body {
-    font-family: Arial, sans-serif;
-    background: var(--gray-light);
-    margin: 0;
-    padding: 30px;
-    color: var(--black);
+  background: #F5F5F5;
+  color: #222222;
 }
 
-.page-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
+.top-header {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-.page-desc {
-    margin-bottom: 25px;
-    color: var(--gray-text);
+.top-header h1 {
+  font-size: 32px;
+  color: #111111;
 }
 
-/* ===== PROJECT GRID ===== */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+.top-header p {
+  color: #666666;
+  font-size: 16px;
 }
 
-/* ===== CARD ===== */
-.project-card {
-    background: var(--white);
-    border-radius: 14px;
-    box-shadow: 0px 4px 12px var(--card-shadow);
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 240px;
-    transition: transform 0.2s ease;
+/* =====================
+   GRID DE CARDS
+===================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding-bottom: 60px;
 }
 
-.project-card:hover {
-    transform: translateY(-4px);
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 16px;
+  transition: transform .2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 6px;
+.card:hover {
+  transform: translateY(-4px);
 }
 
-.card-subtitle {
-    font-size: 14px;
-    color: var(--gray-text);
-    margin-bottom: 14px;
+.card img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.card-btn {
-    margin-top: auto;
-    align-self: flex-start;
-    background: var(--orange);
-    color: var(--white);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
+.card h3 {
+  font-size: 18px;
+  color: #111111;
 }
 
-.card-btn:hover {
-    opacity: 0.85;
+.card p {
+  font-size: 14px;
+  color: #666666;
 }
 
-/* ===== MODAL ===== */
+.card button {
+  margin-top: auto;
+  padding: 10px;
+  background: #FF7A00;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.card button:hover {
+  background: #E56A00;
+}
+
+/* =====================
+   MODAL
+===================== */
 .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000A0;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  display: flex;
 }
 
 .modal-content {
-    background: var(--white);
-    width: 100%;
-    max-width: 900px;
-    border-radius: 18px;
-    padding: 32px;
-    box-shadow: 0px 4px 18px var(--card-shadow);
-    overflow-y: auto;
-    max-height: 90vh;
+  background: #FFFFFF;
+  width: 90%;
+  max-width: 850px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.modal-close {
-    font-size: 18px;
-    cursor: pointer;
-    float: right;
-    color: var(--black);
+.close-modal {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #555555;
 }
 
-.modal-close:hover {
-    opacity: 0.6;
+.modal-main-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
-.modal-body img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 12px;
-    margin-bottom: 14px;
+#modalTitle {
+  font-size: 26px;
+  margin-bottom: 5px;
+  color: #111111;
+}
+
+#modalCategory {
+  font-size: 15px;
+  margin-bottom: 18px;
+  color: #777777;
+}
+
+#modalDesc {
+  font-size: 15px;
+  color: #444444;
+  line-height: 1.6;
+}
+
+.modal-gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.modal-gallery img {
+  width: 130px;
+  border-radius: 8px;
+  border: 2px solid #DDDDDD;
 }

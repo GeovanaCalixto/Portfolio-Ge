@@ -1,84 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Projetos</title>
-    <link rel="stylesheet" href="projetos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Projetos</title>
+  <link rel="stylesheet" href="projetos.css" />
 </head>
+
 <body>
 
-    <h1 class="page-title">Meus Projetos</h1>
-    <p class="page-desc">Acompanhe os projetos — clique em "Ver detalhes" para abrir a página modal.</p>
+  <header class="top-header">
+    <h1>Projetos</h1>
+    <p>Selecione um projeto para ver detalhes</p>
+  </header>
 
-    <div id="projects-container" class="projects-grid"></div>
+  <div class="container">
 
-    <!-- MODAL -->
-    <div id="modal" class="modal-overlay">
-        <div class="modal-content">
-            <span id="closeModal" class="modal-close">✖</span>
-            <div id="modal-body"></div>
-        </div>
+    <!-- CARD 1 -->
+    <div class="card"
+      data-title="Stand de vendas | Epadoca"
+      data-category="Identidade visual e presença estratégica da marca"
+      data-image="img/epadoca.jpg"
+      data-desc="<p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p><p><a href='https://site.com' target='_blank'>Link do projeto</a></p><p><a href='documento.pdf' target='_blank'>Baixar PDF</a></p>"
+      data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg">
+
+      <img src="img/epadoca.jpg" alt="Stand Epadoca">
+      <h3>Stand de vendas | Epadoca</h3>
+      <p>Identidade visual e presença estratégica da marca</p>
+      <button class="open-modal">Ver detalhes</button>
     </div>
 
-    <script>
+    <!-- CARD 2 -->
+    <div class="card"
+      data-title="Projeto 2"
+      data-category="Categoria B"
+      data-image="img/projeto2.jpg"
+      data-desc="<p>Descrição do segundo projeto com mais detalhes, textos e links.</p>"
+      data-gallery="img/extra4.jpg,img/extra5.jpg">
 
-    // LISTA DE PROJETOS
-const projects = [
-    {
-        id: 1,
-        title: "Stand de vendas | Epadoca",
-        category: "Identidade visual e presença estratégica da marca",
-        desc: "Descrição completa do projeto, com texto, imagens, links e PDFs.",
-        image: "https://via.placeholder.com/500x260?text=Stand+Epadoca"
-    },
+      <img src="img/projeto2.jpg" alt="Projeto 2">
+      <h3>Projeto 2</h3>
+      <p>Categoria B</p>
+      <button class="open-modal">Ver detalhes</button>
+    </div>
 
-    {
-        id: 2,
-        title: "Projeto 2",
-        category: "Categoria B",
-        desc: "Descrição do Projeto 2 — texto, imagens e links aqui.",
-        image: "https://via.placeholder.com/500x260?text=Projeto+2"
-    },
- ];
+  </div>
 
-// RENDERIZAR CARDS
-const container = document.getElementById("projects-container");
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <img id="modalImage" class="modal-main-image" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalCategory"></p>
+      <div id="modalDesc"></div>
+      <div id="modalGallery" class="modal-gallery"></div>
+    </div>
+  </div>
 
-projects.forEach(p => {
-    container.innerHTML += `
-        <div class="project-card">
-            <img src="${p.image}" alt="${p.title}" style="width:100%; border-radius:10px; margin-bottom:12px;">
-            <div>
-                <div class="card-title">${p.title}</div>
-                <div class="card-subtitle">${p.category}</div>
-            </div>
-            <button class="card-btn" onclick="openModal(${p.id})">Ver detalhes</button>
-        </div>
-    `;
+  <script>
+    const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalCategory = document.getElementById("modalCategory");
+const modalDesc = document.getElementById("modalDesc");
+const modalGallery = document.getElementById("modalGallery");
+
+// Abre o modal
+document.querySelectorAll(".open-modal").forEach(button => {
+  button.addEventListener("click", e => {
+    const card = e.target.closest(".card");
+
+    modalImage.src = card.dataset.image;
+    modalTitle.textContent = card.dataset.title;
+    modalCategory.textContent = card.dataset.category;
+    modalDesc.innerHTML = card.dataset.desc;
+
+    modalGallery.innerHTML = "";
+    if (card.dataset.gallery) {
+      card.dataset.gallery.split(",").forEach(src => {
+        const img = document.createElement("img");
+        img.src = src.trim();
+        modalGallery.appendChild(img);
+      });
+    }
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
 });
 
-// MODAL
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modal-body");
-const closeModalBtn = document.getElementById("closeModal");
+// Fecha modal pelo botão
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
 
-function openModal(id) {
-    const p = projects.find(proj => proj.id === id);
-    modalBody.innerHTML = `
-        <h2>${p.title}</h2>
-        <p><strong>Categoria:</strong> ${p.category}</p>
-        <p>${p.desc}</p>
-        <img src="${p.image}">
-    `;
-    modal.style.display = "flex";
-}
+// Fecha modal clicando fora
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+});
 
-closeModalBtn.onclick = () => modal.style.display = "none";
-window.onclick = e => e.target === modal && (modal.style.display = "none");
+  </script>
 
-</script>
-
-
- </body>
+</body>
 </html>
