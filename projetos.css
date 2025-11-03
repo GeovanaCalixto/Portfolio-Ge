@@ -34,12 +34,12 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
-  margin-top: 40px; /* ou 60px, ajuste como preferir */
+   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
   padding-bottom: 60px;
+  padding-top: 60px;
 }
 
 .card {
