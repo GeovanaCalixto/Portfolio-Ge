@@ -896,6 +896,7 @@ p.small {
     /* Ou transformar em menu hamburger com JS */
     font-size: 1.1;
   }
+}
 
   .contato .telefone {
     padding: 6px 10px;
@@ -984,6 +985,7 @@ p.small {
       text-align: center;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+  }
 
     .menu.show {
       display: flex;
@@ -1074,15 +1076,4 @@ p.small {
       display: flex;
       flex-direction: column;
       text-align: center;
-      
-    }
-
-    .section-projetos .container {
-  display: flex;
-  flex-direction: column;
-  text-align: center; /* opcional, você decide */
-}
-
-
-  }
-}
+     }
