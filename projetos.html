@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,33 +10,26 @@
 
 <body>
   <div class="container">
-    <div class="card" 
-      data-title="Stand de vendas | Epadoca"
-      data-category="Identidade visual e presença estratégica da marca"
-      data-image="img/epadoca.jpg"
-      data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg"
-      data-desc="
+    <div class="card" data-title="Stand de vendas | Epadoca"
+      data-category="Identidade visual e presença estratégica da marca" data-image="img/epadoca.jpg"
+      data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg" data-desc="
         <p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p>
         <p><a href='https://site.com' target='_blank'>Link do projeto</a></p>
-        <p><a href='documento.pdf' target='_blank'>Baixar PDF</a></p>
-      ">
+        <p><a href='documento.pdf' target='_blank'>Baixar PDF</a></p>">
       <img src="img/epadoca.jpg" alt="Stand Epadoca">
       <h3>Stand de vendas | Epadoca</h3>
       <p>Identidade visual e presença estratégica da marca</p>
       <button class="open-modal">Ver detalhes</button>
     </div>
 
-    <div class="card" 
-      data-title="Projeto 2"
-      data-category="Categoria B"
-      data-image="img/projeto2.jpg"
+    <div class="card" data-title="Projeto 2" data-category="Categoria B" data-image="img/projeto2.jpg"
       data-gallery="img/extra4.jpg,img/extra5.jpg"
       data-desc="<p>Descrição do segundo projeto com mais detalhes, textos e links.</p>">
       <img src="img/projeto2.jpg" alt="Projeto 2">
       <h3>Projeto 2</h3>
       <p>Categoria B</p>
       <button class="open-modal">Ver detalhes</button>
-     </div>
+    </div>
   </div>
 
   <!-- Modal -->
@@ -53,54 +47,55 @@
   </div>
 
   <script>
-const modal = document.getElementById("modal");
-const closeModal = document.getElementById("closeModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalCategory = document.getElementById("modalCategory");
-const modalDesc = document.getElementById("modalDesc");
-const modalGallery = document.getElementById("modalGallery");
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalGallery = document.getElementById("modalGallery");
 
-// Abrir modal
-document.querySelectorAll(".open-modal").forEach(btn => {
-  btn.addEventListener("click", e => {
-    const card = e.target.closest(".card");
-    modalImage.src = card.dataset.image;
-    modalTitle.textContent = card.dataset.title;
-    modalCategory.textContent = card.dataset.category;
-    modalDesc.innerHTML = card.dataset.desc;
+    // Abrir modal
+    document.querySelectorAll(".open-modal").forEach(btn => {
+      btn.addEventListener("click", e => {
+        const card = e.target.closest(".card");
+        modalImage.src = card.dataset.image;
+        modalTitle.textContent = card.dataset.title;
+        modalCategory.textContent = card.dataset.category;
+        modalDesc.innerHTML = card.dataset.desc;
 
-    modalGallery.innerHTML = "";
-    if (card.dataset.gallery) {
-      const images = card.dataset.gallery.split(",");
-      images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src.trim();
-        img.alt = "Imagem extra";
-        modalGallery.appendChild(img);
+        modalGallery.innerHTML = "";
+        if (card.dataset.gallery) {
+          const images = card.dataset.gallery.split(",");
+          images.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src.trim();
+            img.alt = "Imagem extra";
+            modalGallery.appendChild(img);
+          });
+        }
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
       });
-    }
+    });
 
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-});
+    // Fechar modal
+    closeModal.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
 
-// Fechar modal
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
-
-modal.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
-</script>
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+  </script>
 
 
 
-  </body>
+</body>
+
 </html>
