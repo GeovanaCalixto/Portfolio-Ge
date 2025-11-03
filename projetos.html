@@ -92,83 +92,99 @@
   </div>
 
   <script>
-// ==================== CONFIGURAÇÃO DOS PROJETOS ====================
-// Aqui você cadastra os conteúdos de cada card/modal
-// Basta adicionar mais objetos dentro do array
+(function(){
+  // Seletores do modal (certifique-se que existam estes elementos no DOM)
+  const overlay = document.querySelector('.modal-overlay');
+  const modalBox = document.querySelector('.modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalSub = document.getElementById('modal-sub');
+  const modalDesc = document.getElementById('modal-desc');
 
-const projetos = [
-  {
-    id: 1,
-    titulo: "Título do Projeto 1",
-    subtitulo: "Subtítulo ou Área do Projeto",
-    descricao: "Aqui entra a descrição completa do projeto. Esse texto pode ser longo, com quantas linhas quiser. Você pode colocar histórico do projeto, objetivos, resultados, etc.",
-    imagem: "Imagens/projeto1.jpg",
-    anexos: `
-      <a href="#" target="_blank">📎 Baixar PDF</a><br>
-      <a href="#" target="_blank">🔗 Link do Projeto</a>
-    `
-  },
-  {
-    id: 2,
-    titulo: "Título do Projeto 2",
-    subtitulo: "Subtítulo ou Área do Projeto",
-    descricao: "Outro texto explicando o projeto 2. Essa estrutura suporta qualquer conteúdo HTML.",
-    imagem: "Imagens/projeto2.jpg",
-    anexos: `
-      <a href="#" target="_blank">📎 Documento Google</a><br>
-      <a href="#" target="_blank">🔗 Site Oficial</a>
-    `
+  if (!overlay || !modalBox) {
+    console.warn('Modal não encontrado: verifique se .modal-overlay e .modal existem no DOM.');
+    return;
   }
-];
 
-// ==================== ELEMENTOS DO MODAL ====================
-const modalOverlay = document.querySelector(".modal-overlay");
-const modalTitle = document.querySelector("#modal-title");
-const modalSub = document.querySelector("#modal-sub");
-const modalDesc = document.querySelector("#modal-desc");
-const modalImg = document.querySelector("#modal-img");
-const modalAnexos = document.querySelector("#modal-anexos");
-const closeModalBtn = document.querySelector(".close-modal");
+  // Abre o modal a partir de um elemento <article class="card">
+  function openModalFromCard(card) {
+    const title = card.dataset.title || '';
+    const subtitle = card.dataset.subtitle || '';
+    const desc = card.dataset.desc || '';
+    const img = card.dataset.img || '';
 
-// ==================== FUNÇÃO PARA ABRIR MODAL ====================
-function abrirModal(idProjeto) {
-  const projeto = projetos.find(p => p.id === idProjeto);
+    modalTitle.textContent = title;
+    modalSub.textContent = subtitle;
+    // data-desc já pode conter HTML (ex: <p>...), então inserimos direto
+    modalDesc.innerHTML = desc;
+    if (modalImg) {
+      modalImg.src = img || '';
+      modalImg.alt = title || 'Imagem do projeto';
+    }
 
-  if (!projeto) return;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
 
-  modalTitle.innerText = projeto.titulo;
-  modalSub.innerText = projeto.subtitulo;
-  modalDesc.innerText = projeto.descricao;
-  modalImg.src = projeto.imagem;
-  modalAnexos.innerHTML = projeto.anexos;
+    // foco para acessibilidade
+    const focusable = modalBox.querySelectorAll('button, a[href], input, textarea, select');
+    if (focusable.length) focusable[0].focus();
+  }
 
-  modalOverlay.classList.add("active");
-}
+  function closeModal() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
 
-// ==================== FECHAR MODAL ====================
-function fecharModal() {
-  modalOverlay.classList.remove("active");
-}
-
-closeModalBtn.addEventListener("click", fecharModal);
-
-modalOverlay.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) fecharModal();
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") fecharModal();
-});
-
-// ==================== CONECTAR BOTÕES DINAMICAMENTE ====================
-document.addEventListener("DOMContentLoaded", () => {
-  const botoes = document.querySelectorAll(".btn-detalhes");
-  botoes.forEach((btn) => {
-    const id = parseInt(btn.dataset.id);
-    btn.addEventListener("click", () => abrirModal(id));
+  // Ligar aos botões .open-modal (dentro do card)
+  document.querySelectorAll('.open-modal').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const card = btn.closest('.card');
+      if (card) openModalFromCard(card);
+    });
   });
-});
-</script>
 
+  // Também abrir clicando no card (exceto quando o clique for em link ou botão)
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function(e){
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      openModalFromCard(card);
+    });
 
+    // abrir por teclado (Enter/Space)
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModalFromCard(card);
+      }
+    });
+  });
+
+  // fechar via botão(s) com classe .close-modal
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  // fechar clicando no overlay fora da caixa
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+
+  // fechar com ESC
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // expor função global se quiser abrir por código: window.openModalFromCard(cardElement)
+  window.openModalFromCard = openModalFromCard;
+})();
+ </script>
+ 
 </body>
