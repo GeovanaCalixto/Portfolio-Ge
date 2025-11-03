@@ -7,71 +7,87 @@
   <title>Projetos – Portfólio da Ge</title>
   <link rel="stylesheet" href="projetos.css" />
 </head>
-
-
+ 
 <body>
-  <!-- GALERIA -->
+
+  <!-- ================= GALERIA ================= -->
   <section class="galeria">
     <div class="container-galeria">
 
-      <article class="card" data-title="Título completo" data-subtitle="Categoria" data-img="imagens/projeto3.jpg"
-        data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
+      <!-- CARD 1 -->
+      <article class="card" tabindex="0" data-title="Título completo do projeto" data-subtitle="Categoria ou tipo"
+        data-img="imagens/imgprojetos/Stand Epadoca.jpg"
+        data-desc="<p>Descrição longa com imagens e texto formatado.</p>" data-pdfs="arquivos/manual.pdf"
         data-links="https://meuprojeto.com">
 
-        <img src="imagens/projeto3.jpg">
+        <img src="imagens/imgprojetos/Stand Epadoca.jpg" alt="Imagem do projeto">
         <h3>Título</h3>
         <p>Categoria</p>
         <a href="#" class="open-modal">Ver detalhes</a>
       </article>
 
-
-      <article class="card" data-title="Título completo" data-subtitle="Categoria" data-img="imagens/projeto3.jpg"
-        data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
+      <!-- CARD 2 -->
+      <article class="card" tabindex="0" data-title="Outro projeto" data-subtitle="Categoria"
+        data-img="imagens/projeto3.jpg" data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
         data-links="https://meuprojeto.com">
 
-        <img src="imagens/projeto3.jpg">
+        <img src="imagens/projeto3.jpg" alt="Imagem do projeto">
         <h3>Título</h3>
         <p>Categoria</p>
         <a href="#" class="open-modal">Ver detalhes</a>
       </article>
 
-      <article class="card" data-title="Título completo" data-subtitle="Categoria" data-img="imagens/projeto3.jpg"
-        data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
+      <!-- CARD 3 -->
+      <article class="card" tabindex="0" data-title="Mais um projeto" data-subtitle="Categoria"
+        data-img="imagens/projeto3.jpg" data-desc="<p>Descrição longa com imagens</p>" data-pdfs="arquivos/manual.pdf"
         data-links="https://meuprojeto.com">
 
-        <img src="imagens/projeto3.jpg">
+        <img src="imagens/projeto3.jpg" alt="Imagem do projeto">
         <h3>Título</h3>
         <p>Categoria</p>
         <a href="#" class="open-modal">Ver detalhes</a>
       </article>
 
+    </div> <!-- fecha .container-galeria -->
   </section>
+  <!-- =============== FIM DA GALERIA =============== -->
 
-  <!-- MODAL (incluir no final do body) -->
+
+  <!-- ================= MODAL ================= -->
   <div class="modal-overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
       <button class="close-modal" aria-label="Fechar modal">&times;</button>
 
       <div class="modal-content">
+
+        <!-- Imagem destacada -->
         <div class="modal-image">
           <img src="" alt="" id="modal-img">
         </div>
 
+        <!-- Conteúdo -->
         <div class="modal-info">
           <h2 id="modal-title">Título do Projeto</h2>
           <p class="modal-sub" id="modal-sub">Subtítulo</p>
+
           <div class="modal-desc" id="modal-desc">
             <p>Descrição do projeto...</p>
           </div>
 
+          <!-- Botões -->
           <div class="modal-actions">
             <button class="btn-detalhes close-modal">Fechar</button>
           </div>
+
         </div>
       </div>
     </div>
   </div>
+  <!-- =============== FIM MODAL =============== -->
 
+
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     /* ===== Seletores ===== */
     const modalOverlay = document.querySelector('.modal-overlay');
@@ -81,70 +97,58 @@
     const modalSub = document.getElementById('modal-sub');
     const modalDesc = document.getElementById('modal-desc');
 
-    const openBtns = document.querySelectorAll('.open-modal'); // botões "Ver detalhes"
-    const cards = document.querySelectorAll('.card'); // também permitimos clique no card todo
+    const openBtns = document.querySelectorAll('.open-modal');
+    const cards = document.querySelectorAll('.card');
 
-    let lastFocusedElement = null; // para devolver foco depois de fechar
+    let lastFocusedElement = null;
 
-    /* ===== Função para abrir e preencher o modal ===== */
-    function openModalFromCard(cardElement) {
-      // pega dados do card via data-attributes
+    /* ===== Abrir modal ===== */
+     function openModalFromCard(cardElement) {
       const title = cardElement.dataset.title || '';
       const subtitle = cardElement.dataset.subtitle || '';
       const desc = cardElement.dataset.desc || '';
       const img = cardElement.dataset.img || '';
-
-
-      // preenche o modal
+ 
       modalTitle.textContent = title;
       modalSub.textContent = subtitle;
-      modalDesc.innerHTML = '<p>' + desc + '</p>';
+      modalDesc.innerHTML = desc; // ✅ agora insere HTML sem <p> duplicado
       modalImg.src = img;
       modalImg.alt = title + ' — imagem';
 
-      // mostra o modal
-      modalOverlay.classList.add('active');
-      modalOverlay.setAttribute('aria-hidden', 'false');
-
-      // trava scroll do body
+       modalOverlay.classList.add('active');
+       modalOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-
-      // gestão de foco
+ 
       lastFocusedElement = document.activeElement;
       const focusable = modal.querySelectorAll('button, [href], input, textarea, select');
       if (focusable.length) focusable[0].focus();
     }
 
-    /* ===== Função para fechar o modal ===== */
+    /* ===== Fechar modal ===== */
     function closeModal() {
       modalOverlay.classList.remove('active');
       modalOverlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = ''; // libera scroll
-
-      // devolver foco ao elemento anterior
+      document.body.style.overflow = '';
+ 
       if (lastFocusedElement) lastFocusedElement.focus();
     }
 
-    /* ===== Eventos: abrir com o botão "Ver detalhes" ===== */
+    /* ===== Abrir com botão ===== */
     openBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        // encontra o card pai mais próximo
-        const card = btn.closest('.card');
+         const card = btn.closest('.card');
         if (card) openModalFromCard(card);
       });
     });
 
-    /* ===== Também permitir abrir clicando no card inteiro ===== */
+    /* ===== Abrir clicando no card inteiro ===== */
     cards.forEach(card => {
       card.addEventListener('click', (e) => {
-        // evita que clicar no link interno abra duas vezes
-        const targetIsLink = e.target.closest('a');
-        if (targetIsLink) return;
+        if (e.target.closest('a')) return;
         openModalFromCard(card);
       });
-
-      // abrir via teclado (Enter)
+  
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -153,47 +157,21 @@
       });
     });
 
-    /* ===== Fechar: botões que fecham o modal (x e botão fechar) ===== */
-    const closeButtons = document.querySelectorAll('.close-modal');
-    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+    /* ===== Fechar (botão X e botão Fechar) ===== */
+    document.querySelectorAll('.close-modal')
+      .forEach(btn => btn.addEventListener('click', closeModal));
 
-    /* ===== Fechar clicando no overlay (fora da caixa) ===== */
+    /* ===== Fechar clicando fora ===== */
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) closeModal();
     });
 
-    /* ===== Fechar com Escape ===== */
+    /* ===== ESC fecha ===== */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
         closeModal();
       }
     });
+   </script>
 
-    /* ===== Focus trap simples dentro do modal ===== */
-    modalOverlay.addEventListener('keydown', function (e) {
-      if (!modalOverlay.classList.contains('active')) return;
-
-      const focusable = modal.querySelectorAll('a[href], button:not([disabled]), input, textarea, select');
-      if (!focusable.length) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (e.key === 'Tab') {
-        if (e.shiftKey) { // shift + tab
-          if (document.activeElement === first) {
-            e.preventDefault();
-            last.focus();
-          }
-        } else { // tab
-          if (document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
-          }
-        }
-      }
-    });
-  </script>
-
-
-</body>
+ </body>
