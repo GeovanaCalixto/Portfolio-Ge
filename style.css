@@ -1007,20 +1007,10 @@ div.experience-card{
     padding: 60px 20px;
   }
 
- .projetos {
- margin-left: auto;
- background: #e2e2e2;
- margin-right: auto;
- max-width: 1200px;
- padding: 80px 20px;
- }
-
-.projetos h2{
-color: #3D3A3A;
- }
-
- .projetos p {
-  color: #777;
- }
+  .projetos {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
   }
+}
 }
