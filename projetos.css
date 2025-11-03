@@ -1,114 +1,202 @@
-/* ================= RESET ================= */
+/* ===== RESET BÁSICO ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+}
+:focus-visible {
+  outline: 2px solid #FF7A00; /* exemplo: foco laranja */
+  outline-offset: 3px;
 }
 
-/* ================= GALERIA ================= */
+/* ===== BASE / GALERIA ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #F5F6FA;
+  color: #222222;
+  line-height: 1.5;
+}
+
 .galeria {
-  width: 100%;
-  padding: 40px 20px;
-  background: #FFFFFF;
+  padding: 36px 20px;
 }
 
 .container-galeria {
+  max-width: 1400px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* auto, até 4 por linha */
   gap: 24px;
-  max-width: 1300px;
-  margin: auto;
 }
 
-/* ================= CARDS ================= */
+/* ===== CARD ===== */
 .card {
   background: #FFFFFF;
-  border: 1px solid #E0E0E0;
-  border-radius: 12px;
+  border: 1px solid #E6E6E6;
+  border-radius: 10px; /* arredondamento médio */
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  transition: transform 0.15s ease-in-out;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px #00000014; /* sombra suave: #00000014 */
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   display: block;
+  border-radius: 10px 10px 0 0; /* mesmo radius da caixa */
 }
 
 .info-card {
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
 }
 
 .info-card h3 {
   font-size: 18px;
-  font-weight: bold;
-  color: #1A1A1A;
-  margin-bottom: 8px;
+  color: #111111;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.info-card p {
+.info-card .cat {
+  color: #666666;
   font-size: 14px;
-  color: #505050;
-  margin-bottom: 14px;
+  margin: 0;
 }
 
-.btn-detalhes {
+/* Botão "Ver detalhes" dentro do card (sólido laranja) */
+.open-modal {
   display: inline-block;
-  background: #FF7A00FF;
-  /* Laranja sólido */
-  color: #FFFFFFFF;
-  text-decoration: none;
+  background: #FF7A00; /* laranja */
+  color: #FFFFFF;
   padding: 8px 14px;
   font-size: 14px;
   border-radius: 6px;
+  text-decoration: none;
   border: none;
+  width: max-content;
   cursor: pointer;
 }
+.open-modal:hover {
+  background: #E86D00; /* hover laranja */
+}
 
-/* ================= MODAL ================= */
+/* ===== MODAL OVERLAY ===== */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000000CC;
-  /* Preto 80% */
+  inset: 0;
+  background: #00000066; /* overlay médio (hex alpha) */
   display: none;
   justify-content: center;
   align-items: center;
   padding: 24px;
   z-index: 9999;
 }
-
 .modal-overlay.active {
   display: flex;
 }
 
-.modal-content {
-  width: 95%;
-  max-width: 1500px;
-  margin: 2% auto;
-  padding: 3rem;
-   border-radius: 18px;
+/* ===== MODAL (CAIXA) ===== */
+/* Modal centralizado, largura 90-95% com limite */
+.modal {
+  background: #FFFFFF; /* caixa branca */
+  width: 92%;
+  max-width: 1500px;    /* limite máximo */
+  max-height: 90vh;
+  overflow-y: auto;     /* scroll interno se necessário */
+  border-radius: 18px;  /* borda arredondada */
+  position: relative;
+  padding: 20px 26px;
+  box-shadow: 0 12px 30px #00000014; /* sombra suave */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
 }
 
-
-.modal-body {
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
-
-
+/* ===== BOTÃO X (simples) ===== */
 .close-modal {
   position: absolute;
-  right: 16px;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #333333;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
 }
- 
+
+/* ===== IMAGEM DO MODAL (largura total, com borda arredondada) ===== */
+.modal-image img#modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* borda da imagem com arredondamento */
+  object-fit: cover;
+  box-shadow: 0 8px 20px #00000010;
+}
+
+/* ===== CORPO DO MODAL ===== */
+.modal-body {
+  padding: 4px 2px 8px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-top {
+  font-size: 14px;
+  color: #666666;
+}
+#modal-title {
+  font-size: 24px;
+  color: #111111;
+  margin: 0;
+}
+.modal-sub {
+  color: #666666;
+  font-size: 15px;
+  margin: 0;
+}
+.modal-desc {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Anexos / links dentro do modal */
+.modal-links a {
+  display: inline-block;
+  background: #FF7A00;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+.modal-links a:hover {
+  background: #E86D00;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px) {
+  .modal { width: 94%; padding: 18px; }
+}
+@media (max-width: 720px) {
+  .container-galeria { gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card img { height: 160px; }
+  .modal { width: 96%; padding: 14px; border-radius: 12px; }
+  .modal-image img#modal-img { border-radius: 8px; }
+}

@@ -8,115 +8,113 @@
   <link rel="stylesheet" href="projetos.css" />
 </head>
  
-<body>
+ <body>
 
   <!-- ================= GALERIA ================= -->
-  <body>
+  <!-- ========== GALERIA (substitua a sua section atual) ========== -->
+<section class="galeria">
+  <div class="container-galeria">
 
-  <!-- ================= GALERIA ================= -->
-  <section class="galeria">
-    <div class="container-galeria">
-
-      <!-- CARD 1 -->
-      <article class="card" tabindex="0"
-        data-title="Stand de vendas | Epadoca"
-        data-subtitle="Identidade visual e presença estratégica da marca"
-        data-img="imagens/imgprojetos/Stand Epadoca.jpg"
-        data-desc="<p>xxxxxxxxx..</p>">
-
-        <img src="Imagens/imgprojetos/Stand Epadoca.jpg" alt="Imagem do Projeto">
-        <div class="info-card">
-          <h3>Stand de vendas | Epadoca</h3>
-          <p>Identidade visual e presença estratégica da marca</p>
-          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
-        </div>
-      </article>
-
-      <!-- CARD 2 -->
-      <article class="card" tabindex="0"
-        data-title="Título do Projeto"
-        data-subtitle="Categoria"
-        data-img="imagens/projeto2.jpg"
-        data-desc="<p>Outro projeto com informações detalhadas...</p>">
-
-        <img src="imagens/projeto2.jpg" alt="Imagem do Projeto">
-        <div class="info-card">
-          <h3>Título do Projeto</h3>
-          <p>Categoria</p>
-          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
-        </div>
-      </article>
-
-      <!-- CARD 3 -->
-      <article class="card" tabindex="0"
-        data-title="Título do Projeto"
-        data-subtitle="Categoria"
-        data-img="imagens/projeto3.jpg"
-        data-desc="<p>Descrição com texto, imagens, anexos, etc...</p>">
-
-        <img src="imagens/projeto3.jpg" alt="Imagem do Projeto">
-        <div class="info-card">
-          <h3>Título do Projeto</h3>
-          <p>Categoria</p>
-          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ================= MODAL ================= -->
-  <div class="modal-overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-
-      <button class="close-modal" aria-label="Fechar modal">&times;</button>
-
-      <div class="modal-content">
-
-        <div class="modal-image">
-          <img src="" alt="" id="modal-img">
-        </div>
-
-        <div class="modal-info">
-          <h2 id="modal-title"></h2>
-          <p class="modal-sub" id="modal-sub"></p>
-          <div class="modal-desc" id="modal-desc"></div>
-
-          <div class="modal-actions">
-            <button class="btn-detalhes close-modal">Fechar</button>
-          </div>
-        </div>
-
+    <!-- CARD 1 -->
+    <article class="card" tabindex="0"
+      data-title="Stand de vendas | Epadoca"
+      data-subtitle="Identidade visual e presença estratégica da marca"
+      data-img="Imagens/imgprojetos/Stand Epadoca.jpg"
+      data-desc="<p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p><p>Detalhes extras e resultados do projeto.</p>">
+      <img src="Imagens/imgprojetos/Stand Epadoca.jpg" alt="Stand de vendas | Epadoca">
+      <div class="info-card">
+        <h3>Stand de vendas | Epadoca</h3>
+        <p class="cat">Identidade visual e presença estratégica da marca</p>
+        <a href="#" class="open-modal">Ver detalhes</a>
       </div>
-    </div>
-  </div>
+    </article>
 
-  <script>
-(function(){
-  // Seletores do modal (certifique-se que existam estes elementos no DOM)
+    <!-- CARD 2 -->
+    <article class="card" tabindex="0"
+      data-title="Projeto 2"
+      data-subtitle="Categoria 2"
+      data-img="Imagens/projeto2.jpg"
+      data-desc="<p>Texto do projeto 2. Explique o que foi feito.</p>">
+      <img src="Imagens/projeto2.jpg" alt="Projeto 2">
+      <div class="info-card">
+        <h3>Título do Projeto</h3>
+        <p class="cat">Categoria</p>
+        <a href="#" class="open-modal">Ver detalhes</a>
+      </div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" tabindex="0"
+      data-title="Projeto 3"
+      data-subtitle="Categoria 3"
+      data-img="Imagens/projeto3.jpg"
+      data-desc="<p>Texto do projeto 3. Mais informações aqui.</p>">
+      <img src="Imagens/projeto3.jpg" alt="Projeto 3">
+      <div class="info-card">
+        <h3>Título do Projeto</h3>
+        <p class="cat">Categoria</p>
+        <a href="#" class="open-modal">Ver detalhes</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== MODAL GLOBAL (apenas um modal usado por todos os cards) ========== -->
+<div class="modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+    <!-- X simples -->
+    <button class="close-modal" aria-label="Fechar modal">✕</button>
+
+    <!-- Conteúdo do modal -->
+    <div class="modal-image">
+      <img id="modal-img" src="" alt="">
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-top" id="modal-top"></p> <!-- opcional curto -->
+      <h2 id="modal-title"></h2>
+      <p class="modal-sub" id="modal-sub"></p>
+      <div id="modal-desc" class="modal-desc"></div>
+
+      <div id="modal-anexos" class="modal-links"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+ (function(){
   const overlay = document.querySelector('.modal-overlay');
   const modalBox = document.querySelector('.modal');
   const modalImg = document.getElementById('modal-img');
   const modalTitle = document.getElementById('modal-title');
   const modalSub = document.getElementById('modal-sub');
   const modalDesc = document.getElementById('modal-desc');
+  const modalTop = document.getElementById('modal-top');
+  const modalAnexos = document.getElementById('modal-anexos');
+  const closeButtons = document.querySelectorAll('.close-modal');
 
   if (!overlay || !modalBox) {
-    console.warn('Modal não encontrado: verifique se .modal-overlay e .modal existem no DOM.');
+    console.warn('Modal não encontrado — verifique o HTML (.modal-overlay e .modal).');
     return;
   }
-
-  // Abre o modal a partir de um elemento <article class="card">
+ 
   function openModalFromCard(card) {
     const title = card.dataset.title || '';
     const subtitle = card.dataset.subtitle || '';
     const desc = card.dataset.desc || '';
     const img = card.dataset.img || '';
+    // se quiser usar um texto curto acima do título, pode usar data-top
+    const top = card.dataset.top || '';
 
     modalTitle.textContent = title;
     modalSub.textContent = subtitle;
-    // data-desc já pode conter HTML (ex: <p>...), então inserimos direto
-    modalDesc.innerHTML = desc;
+    modalDesc.innerHTML = desc; // permite HTML em data-desc
+    modalTop.textContent = top;
+    modalAnexos.innerHTML = ''; // limpar (pode preencher se tiver data-attachments)
+
     if (modalImg) {
       modalImg.src = img || '';
       modalImg.alt = title || 'Imagem do projeto';
@@ -124,9 +122,8 @@
 
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-
-    // foco para acessibilidade
+    document.body.style.overflow = 'hidden'; // trava scroll da página
+    // foco inicial
     const focusable = modalBox.querySelectorAll('button, a[href], input, textarea, select');
     if (focusable.length) focusable[0].focus();
   }
@@ -137,7 +134,7 @@
     document.body.style.overflow = '';
   }
 
-  // Ligar aos botões .open-modal (dentro do card)
+  // abrir via botão .open-modal
   document.querySelectorAll('.open-modal').forEach(btn => {
     btn.addEventListener('click', function(e){
       e.preventDefault();
@@ -146,14 +143,12 @@
     });
   });
 
-  // Também abrir clicando no card (exceto quando o clique for em link ou botão)
+  // abrir clicando no card (exceto quando clica em links/botões internos)
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function(e){
       if (e.target.closest('a') || e.target.closest('button')) return;
       openModalFromCard(card);
-    });
-
-    // abrir por teclado (Enter/Space)
+     });
     card.addEventListener('keydown', function(e){
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -162,29 +157,27 @@
     });
   });
 
-  // fechar via botão(s) com classe .close-modal
-  document.querySelectorAll('.close-modal').forEach(btn => {
+  // fechar via X
+  closeButtons.forEach(btn => {
     btn.addEventListener('click', function(e){
       e.preventDefault();
       closeModal();
     });
   });
 
-  // fechar clicando no overlay fora da caixa
+  // fechar clicando fora da caixa
   overlay.addEventListener('click', function(e){
     if (e.target === overlay) closeModal();
   });
 
   // fechar com ESC
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-      closeModal();
-    }
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
   });
 
-  // expor função global se quiser abrir por código: window.openModalFromCard(cardElement)
+  // expõe função global (opcional)
   window.openModalFromCard = openModalFromCard;
 })();
- </script>
+</script>
  
-</body>
+ </body>
