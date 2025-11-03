@@ -93,16 +93,13 @@
 }
 
 .modal-content {
-  background-color: #ffffff;
-  color: #333333;
-  width: 90%;              /* antes max-width: 900px */
-  max-width: 1400px;       /* limite para telas grandes */
-  margin: 3% auto;
-  padding: 2.5rem;
-  border-radius: 18px;
-  position: relative;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
+  width: 95%;
+  max-width: 1500px;
+  margin: 2% auto;
+  padding: 3rem;
+   border-radius: 18px;
 }
+
 
 .modal-body {
   font-size: 1.05rem;
