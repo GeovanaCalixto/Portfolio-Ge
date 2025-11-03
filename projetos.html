@@ -1,204 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfólio — Projetos</title>
-  <link rel="stylesheet" href="projetos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+    <link rel="stylesheet" href="projetos.css">
 </head>
-
 <body>
 
-  <main class="projects-page">
+    <h1 class="page-title">Meus Projetos</h1>
+    <p class="page-desc">Acompanhe os projetos — clique em "Ver detalhes" para abrir a página modal.</p>
 
-    <header class="projects-header">
-      <h1>Meus Projetos</h1>
-      <p>Acompanhe os projetos — clique em "Ver detalhes" para abrir a página modal.</p>
-    </header>
+    <div id="projects-container" class="projects-grid"></div>
 
-    <section class="cards-grid" id="cardsGrid">
-      <!-- Exemplo de card: edite os atributos data-* conforme necessário -->
-      <article class="card" data-title="Stand de vendas | Epadoca"
-        data-category="Identidade visual e presença estratégica da marca" data-image="img/epadoca.jpg"
-        data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg" data-desc='
-          <p>Na Epadoca, coordenei projetos de comunicação visual e materiais institucionais.</p>
-          <ul>
-            <li>Design de stand institucional</li>
-            <li>Materiais de onboarding</li>
-            <li>Campanhas digitais</li>
-          </ul>
-          <img src="img/camiseta.png" style="width:100%;border-radius:8px;margin:12px 0;" alt="Camiseta">
-          <p><a href="https://example.com" target="_blank" rel="noopener">Visitar projeto</a></p>
-          <p><a href="documento.pdf" target="_blank" rel="noopener">Baixar PDF</a></p>
-        '>
-        <div class="card-media">
-          <img src="img/epadoca.jpg" alt="Stand Epadoca">
+    <!-- MODAL -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeModal" class="modal-close">✖</span>
+            <div id="modal-body"></div>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Stand de vendas | Epadoca</h3>
-          <p class="card-category">Identidade visual e presença estratégica da marca</p>
-          <button class="btn-primary open-modal">Ver detalhes</button>
-        </div>
-      </article>
-
-      <!-- Copie/duplique este bloco para mais cards -->
-      <article class="card" data-title="Projeto 2" data-category="Categoria B" data-image="img/projeto2.jpg"
-        data-gallery="img/extra4.jpg,img/extra5.jpg"
-        data-desc="<p>Descrição do Projeto 2 — texto, imagens e links aqui.</p>">
-        <div class="card-media">
-          <img src="img/projeto2.jpg" alt="Projeto 2">
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Projeto 2</h3>
-          <p class="card-category">Categoria B</p>
-          <button class="btn-primary open-modal">Ver detalhes</button>
-        </div>
-      </article>
-
-    </section>
-  </main>
-
-  <!-- MODAL: elemento único reutilizável -->
-  <div id="modalOverlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-window" role="document" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
-
-      <div class="modal-inner">
-        <div class="modal-media">
-          <img id="modalMainImage" src="" alt="">
-        </div>
-
-        <div class="modal-info">
-          <h2 id="modalTitle">Título</h2>
-          <p id="modalCategory" class="modal-category">Categoria</p>
-          <div id="modalDesc" class="modal-desc"></div>
-
-          <div id="modalGallery" class="modal-gallery" aria-label="Galeria de imagens"></div>
-
-          <div class="modal-actions">
-            <a id="modalProjectLink" class="modal-link" href="#" target="_blank" rel="noopener">Abrir projeto</a>
-            <a id="modalPdfLink" class="modal-link" href="#" target="_blank" rel="noopener">Baixar PDF</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <script>
-    /* script.js — abre modal, preenche conteúdo a partir do card (data-*) */
-    /* Requisitos:
-       - data-title
-       - data-category
-       - data-image (imagem principal)
-       - data-gallery (opcional: lista separada por vírgula)
-       - data-desc (conteúdo HTML — cuidado ao inserir)
-    */
+    <script>
 
-    (function () {
-      const overlay = document.getElementById('modalOverlay');
-      const closeBtn = document.getElementById('modalClose');
-      const mainImage = document.getElementById('modalMainImage');
-      const titleEl = document.getElementById('modalTitle');
-      const categoryEl = document.getElementById('modalCategory');
-      const descEl = document.getElementById('modalDesc');
-      const galleryEl = document.getElementById('modalGallery');
-      const projectLink = document.getElementById('modalProjectLink');
-      const pdfLink = document.getElementById('modalPdfLink');
+    // LISTA DE PROJETOS
+const projects = [
+    {
+        id: 1,
+        title: "Stand de vendas | Epadoca",
+        category: "Identidade visual e presença estratégica da marca",
+        desc: "Descrição completa do projeto, com texto, imagens, links e PDFs.",
+        image: "https://via.placeholder.com/500x260?text=Stand+Epadoca"
+    },
+    {
+        id: 2,
+        title: "Projeto 2",
+        category: "Categoria B",
+        desc: "Descrição do Projeto 2 — texto, imagens e links aqui.",
+        image: "https://via.placeholder.com/500x260?text=Projeto+2"
+    }
+];
 
-      // abre modal com os dados do card
-      function openFromCard(card) {
-        const data = card.dataset;
+// RENDERIZAR CARDS
+const container = document.getElementById("projects-container");
 
-        titleEl.textContent = data.title || '';
-        categoryEl.textContent = data.category || '';
-        mainImage.src = data.image || '';
-        mainImage.alt = data.title || 'Imagem do projeto';
+projects.forEach(p => {
+    container.innerHTML += `
+        <div class="project-card">
+            <img src="${p.image}" alt="${p.title}" style="width:100%; border-radius:10px; margin-bottom:12px;">
+            <div>
+                <div class="card-title">${p.title}</div>
+                <div class="card-subtitle">${p.category}</div>
+            </div>
+            <button class="card-btn" onclick="openModal(${p.id})">Ver detalhes</button>
+        </div>
+    `;
+});
 
-        // data-desc pode conter HTML — inserimos diretamente
-        descEl.innerHTML = data.desc || '';
+// MODAL
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modal-body");
+const closeModalBtn = document.getElementById("closeModal");
 
-        // limpar e preencher galeria
-        galleryEl.innerHTML = '';
-        if (data.gallery) {
-          const imgs = data.gallery.split(',').map(s => s.trim()).filter(Boolean);
-          imgs.forEach(src => {
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Imagem extra';
-            img.addEventListener('click', () => {
-              mainImage.src = src;
-            });
-            galleryEl.appendChild(img);
-          });
-        }
+function openModal(id) {
+    const p = projects.find(proj => proj.id === id);
+    modalBody.innerHTML = `
+        <h2>${p.title}</h2>
+        <p><strong>Categoria:</strong> ${p.category}</p>
+        <p>${p.desc}</p>
+        <img src="${p.image}">
+    `;
+    modal.style.display = "flex";
+}
 
-        // links: procura no data-desc por links de projeto/pdf (opcional)
-        // se quiser colocar data-project / data-pdf, prioriza esses
-        projectLink.style.display = 'none';
-        pdfLink.style.display = 'none';
+closeModalBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => e.target === modal && (modal.style.display = "none");
 
-        if (data.project) {
-          projectLink.href = data.project;
-          projectLink.style.display = 'inline-block';
-        } else {
-          // tenta extrair link do HTML de data-desc (não obrigatório)
-          // se não existir, deixa oculto
-        }
+</script>
 
-        if (data.pdf) {
-          pdfLink.href = data.pdf;
-          pdfLink.style.display = 'inline-block';
-        }
 
-        // mostra overlay
-        overlay.classList.add('active');
-        overlay.setAttribute('aria-hidden', 'false');
-        // trava scroll do body
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-
-        // foco no close (acessibilidade)
-        closeBtn.focus();
-      }
-
-      // fechar modal
-      function closeModal() {
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden', 'true');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }
-
-      // delegação: abrir ao clicar no botão dentro do card ou no próprio card
-      document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.open-modal');
-        if (btn) {
-          const card = btn.closest('.card');
-          if (card) {
-            e.preventDefault();
-            openFromCard(card);
-          }
-        }
-      });
-
-      // fechar ao clicar no X
-      closeBtn.addEventListener('click', closeModal);
-
-      // fechar ao clicar no overlay fora da janela
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeModal();
-      });
-
-      // fechar com ESC
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) {
-          closeModal();
-        }
-      });
-    })();
-  </script>
- 
-</body>
-
+ </body>
 </html>
