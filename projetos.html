@@ -11,90 +11,164 @@
 <body>
 
   <!-- ================= GALERIA ================= -->
-  <section id="projetos" class="section-projetos">
+  <body>
 
-  <div class="projetos-grid">
+  <!-- ================= GALERIA ================= -->
+  <section class="galeria">
+    <div class="container-galeria">
 
-    <!-- CARD 1 -->
-    <div class="projeto-card">
-      <img src="Imagens/projeto1.jpg" alt="Imagem do projeto" class="projeto-img">
-      <div class="projeto-info">
-        <h3 class="projeto-titulo">Stand de vendas | Epadoca</h3>
-        <p class="projeto-cat">Identidade visual e presença estratégica da marca</p>
-        <button class="btn-detalhes" data-modal="modal1">Ver detalhes</button>
+      <!-- CARD 1 -->
+      <article class="card" tabindex="0"
+        data-title="Stand de vendas | Epadoca"
+        data-subtitle="Identidade visual e presença estratégica da marca"
+        data-img="imagens/imgprojetos/Stand Epadoca.jpg"
+        data-desc="<p>Descrição longa do projeto com imagens, PDFs, etc...</p>">
+
+        <img src="imagens/imgprojetos/Stand Epadoca.jpg" alt="Imagem do Projeto">
+        <div class="info-card">
+          <h3>Stand de vendas | Epadoca</h3>
+          <p>Identidade visual e presença estratégica da marca</p>
+          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card" tabindex="0"
+        data-title="Título do Projeto"
+        data-subtitle="Categoria"
+        data-img="imagens/projeto2.jpg"
+        data-desc="<p>Outro projeto com informações detalhadas...</p>">
+
+        <img src="imagens/projeto2.jpg" alt="Imagem do Projeto">
+        <div class="info-card">
+          <h3>Título do Projeto</h3>
+          <p>Categoria</p>
+          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="card" tabindex="0"
+        data-title="Título do Projeto"
+        data-subtitle="Categoria"
+        data-img="imagens/projeto3.jpg"
+        data-desc="<p>Descrição com texto, imagens, anexos, etc...</p>">
+
+        <img src="imagens/projeto3.jpg" alt="Imagem do Projeto">
+        <div class="info-card">
+          <h3>Título do Projeto</h3>
+          <p>Categoria</p>
+          <a href="#" class="btn-detalhes open-modal">Ver detalhes</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= MODAL ================= -->
+  <div class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+      <button class="close-modal" aria-label="Fechar modal">&times;</button>
+
+      <div class="modal-content">
+
+        <div class="modal-image">
+          <img src="" alt="" id="modal-img">
+        </div>
+
+        <div class="modal-info">
+          <h2 id="modal-title"></h2>
+          <p class="modal-sub" id="modal-sub"></p>
+          <div class="modal-desc" id="modal-desc"></div>
+
+          <div class="modal-actions">
+            <button class="btn-detalhes close-modal">Fechar</button>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <!-- CARD 2 -->
-    <div class="projeto-card">
-      <img src="Imagens/projeto2.jpg" alt="Imagem do projeto" class="projeto-img">
-      <div class="projeto-info">
-        <h3 class="projeto-titulo">Título do Projeto</h3>
-        <p class="projeto-cat">Categoria</p>
-        <button class="btn-detalhes" data-modal="modal2">Ver detalhes</button>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="projeto-card">
-      <img src="Imagens/projeto3.jpg" alt="Imagem do projeto" class="projeto-img">
-      <div class="projeto-info">
-        <h3 class="projeto-titulo">Título do Projeto</h3>
-        <p class="projeto-cat">Categoria</p>
-        <button class="btn-detalhes" data-modal="modal3">Ver detalhes</button>
-      </div>
-    </div>
-
-    <!-- CARD EXTRA -->
-    <div class="projeto-card">
-      <img src="Imagens/projeto4.jpg" alt="Imagem do projeto" class="projeto-img">
-      <div class="projeto-info">
-        <h3 class="projeto-titulo">Título do Projeto</h3>
-        <p class="projeto-cat">Categoria</p>
-        <button class="btn-detalhes" data-modal="modal4">Ver detalhes</button>
-      </div>
-    </div>
-
   </div>
-</section>
 
-<!-- ✅ MODAL BASE (apenas um modelo, você duplica e edita o conteúdo) -->
-<div id="modal1" class="modal-overlay">
-  <div class="modal-content">
-    <button class="modal-close">×</button>
-    <h2 class="modal-title">Stand de vendas | Epadoca</h2>
-    <p class="modal-text">
-      Texto descritivo do projeto, com imagens, passos, links etc.<br>
-      Aqui você pode inserir quantas imagens quiser.
-    </p>
-  </div>
-</div>
+  <script>
+// ==================== CONFIGURAÇÃO DOS PROJETOS ====================
+// Aqui você cadastra os conteúdos de cada card/modal
+// Basta adicionar mais objetos dentro do array
 
-<div id="modal2" class="modal-overlay">
-  <div class="modal-content">
-    <button class="modal-close">×</button>
-    <h2 class="modal-title">Título do projeto</h2>
-    <p class="modal-text">Descrição do projeto...</p>
-  </div>
-</div>
+const projetos = [
+  {
+    id: 1,
+    titulo: "Título do Projeto 1",
+    subtitulo: "Subtítulo ou Área do Projeto",
+    descricao: "Aqui entra a descrição completa do projeto. Esse texto pode ser longo, com quantas linhas quiser. Você pode colocar histórico do projeto, objetivos, resultados, etc.",
+    imagem: "Imagens/projeto1.jpg",
+    anexos: `
+      <a href="#" target="_blank">📎 Baixar PDF</a><br>
+      <a href="#" target="_blank">🔗 Link do Projeto</a>
+    `
+  },
+  {
+    id: 2,
+    titulo: "Título do Projeto 2",
+    subtitulo: "Subtítulo ou Área do Projeto",
+    descricao: "Outro texto explicando o projeto 2. Essa estrutura suporta qualquer conteúdo HTML.",
+    imagem: "Imagens/projeto2.jpg",
+    anexos: `
+      <a href="#" target="_blank">📎 Documento Google</a><br>
+      <a href="#" target="_blank">🔗 Site Oficial</a>
+    `
+  }
+];
 
-<!-- etc... -->
+// ==================== ELEMENTOS DO MODAL ====================
+const modalOverlay = document.querySelector(".modal-overlay");
+const modalTitle = document.querySelector("#modal-title");
+const modalSub = document.querySelector("#modal-sub");
+const modalDesc = document.querySelector("#modal-desc");
+const modalImg = document.querySelector("#modal-img");
+const modalAnexos = document.querySelector("#modal-anexos");
+const closeModalBtn = document.querySelector(".close-modal");
 
-<script>
-  const openBtns = document.querySelectorAll(".btn-detalhes");
-  const closeBtns = document.querySelectorAll(".modal-close");
+// ==================== FUNÇÃO PARA ABRIR MODAL ====================
+function abrirModal(idProjeto) {
+  const projeto = projetos.find(p => p.id === idProjeto);
 
-  openBtns.forEach(btn =>
-    btn.addEventListener("click", () => {
-      const modalId = btn.getAttribute("data-modal");
-      document.getElementById(modalId).classList.add("active");
-    })
-  );
+  if (!projeto) return;
 
-  closeBtns.forEach(btn =>
-    btn.addEventListener("click", () =>
-      btn.parentElement.parentElement.classList.remove("active")
-    )
-  );
+  modalTitle.innerText = projeto.titulo;
+  modalSub.innerText = projeto.subtitulo;
+  modalDesc.innerText = projeto.descricao;
+  modalImg.src = projeto.imagem;
+  modalAnexos.innerHTML = projeto.anexos;
+
+  modalOverlay.classList.add("active");
+}
+
+// ==================== FECHAR MODAL ====================
+function fecharModal() {
+  modalOverlay.classList.remove("active");
+}
+
+closeModalBtn.addEventListener("click", fecharModal);
+
+modalOverlay.addEventListener("click", (e) => {
+  if (e.target === modalOverlay) fecharModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") fecharModal();
+});
+
+// ==================== CONECTAR BOTÕES DINAMICAMENTE ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const botoes = document.querySelectorAll(".btn-detalhes");
+  botoes.forEach((btn) => {
+    const id = parseInt(btn.dataset.id);
+    btn.addEventListener("click", () => abrirModal(id));
+  });
+});
 </script>
- 
+
+
+</body>
