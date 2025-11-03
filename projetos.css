@@ -1,98 +1,24 @@
-/* ======= RESET GERAL ======= */
+/* ================== RESET GERAL ================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+:focus-visible {
+  outline: 2px solid #ff0088;
+  outline-offset: 2px;
+}
 
-/* ======= BASE DA PÁGINA ======= */
+/* ================== BASE DA PÁGINA ================== */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f6fa;
-  color: #555;
-  line-height: 1.5;
-  padding: 40px;
-}
-
-/* ======= CONTAINER PRINCIPAL ======= */
-.container-galeria {
-  display: grid; /* cria a grade */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  /* auto-fit = adapta; minmax = mínimo 300px, máximo 1 fração */
-  gap: 24px; /* espaço entre os cards */
-  justify-content: center;
-}
-
-/* ======= CARD ======= */
-.card {
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden; /* pra borda da imagem seguir o card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-/* ======= IMAGEM DO CARD ======= */
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* garante que a imagem preencha o espaço sem distorcer */
-}
-
-/* ======= TEXTO DO CARD ======= */
-.info-card {
-  padding: 20px;
-}
-
-.info-card h3 {
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.info-card p {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-/* ======= BOTÃO DE DETALHES ======= */
-.btn-detalhes {
-  text-decoration: none;
-  font-weight: 500;
-  background-color:#d86f52;
-  color: #555;
-  padding: 10px 16px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.btn-detalhes:hover {
-  background-color: #fff;
-}
-
-/* ======= EFEITO HOVER NO CARD ======= */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-}
- 
-/* ===== RESET BÁSICO ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:focus-visible { outline: 2px solid #f08; outline-offset: 2px; }
-
-/* ===== BASE ===== */
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f5f6fa;
-  color: #222;
+  color: #222222;
   line-height: 1.5;
   padding: 32px;
 }
 
-/* ===== CONTAINER / GRID ===== */
+/* ================== GRID DOS CARDS ================== */
 .container-galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -100,219 +26,188 @@ body {
   align-items: start;
 }
 
-/* ===== CARD ===== */
+/* ================== CARD ================== */
 .card {
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+  box-shadow: 0 6px 18px #00000012;
   overflow: hidden;
   transition: transform .28s ease, box-shadow .28s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  min-height: 100%; /* mantém cards com alturas amigáveis */
+  min-height: 100%;
 }
 
-/* Imagem da capa */
+/* Imagem do card */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  display:block;
+  display: block;
 }
 
 /* Conteúdo do card */
-.info-card { padding: 16px; display:flex; flex-direction:column; gap:10px; margin-top:auto; }
-.card-title { font-size:1.05rem; color:#222; }
-.card-sub { color:#666; font-size:0.95rem; }
+.info-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+.info-card h3 {
+  font-size: 1.08rem;
+  color: #222222;
+}
+.info-card p {
+  font-size: 0.95rem;
+  color: #666666;
+}
 
-/* Botão dentro do card (abre modal) */
+/* Botão dentro do card */
 .btn-detalhes {
   text-decoration: none;
-  font-weight:600;
-  background-color:#d86f52;
-  color: #444;
+  font-weight: 600;
+  background-color: #d86f52;
+  color: #ffffff;
   padding: 8px 12px;
   border-radius: 10px;
   display: inline-block;
-  width: max-content;
 }
-.btn-detalhes:hover { background-color:#fff; }
+.btn-detalhes:hover {
+  background-color: #ffffff;
+  color: #d86f52;
+  border: 2px solid #d86f52;
+}
 
 /* Hover do card */
-.card:hover, .card:focus {
+.card:hover,
+.card:focus {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 30px #0000001f;
 }
 
-/* ===== OVERLAY DO MODAL ===== */
-.modal {
-  display: none; /* Oculto até ser ativado via JavaScript */
+/* ================== MODAL (OVERLAY) ================== */
+.modal-overlay {
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
+  background-color: #00000066; /* overlay preto 40% */
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 999;
+}
+
+/* Mostrar modal */
+.modal-overlay.active {
+  display: flex;
+}
+
+/* ================== CAIXA DO MODAL ================== */
+.modal {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 980px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px #00000040;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Corpo interno do modal */
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* Imagem do modal */
+.modal-image img {
   width: 100%;
   height: 100%;
-  z-index: 999;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro atrás do modal */
-  backdrop-filter: blur(4px); /* Efeito de desfoque leve no fundo */
-  overflow-y: auto;
-  transition: opacity 0.3s ease-in-out;
+  object-fit: cover;
+  min-height: 320px;
 }
 
-/* ===== CONTEÚDO DO MODAL ===== */
-.modal-content {
-  background-color: #ffffff; /* Fundo branco sólido */
-  color: #333333;
-  max-width: 900px;
-  margin: 4% auto;
-  padding: 2.5rem;
-  border-radius: 18px;
-  position: relative;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
-  animation: slideIn 0.4s ease forwards;
+/* Informações do modal */
+.modal-info {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-
-/* ===== ANIMAÇÃO DE ENTRADA ===== */
-@keyframes slideIn {
-  from {
-    transform: translateY(-40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* ===== BOTÃO DE FECHAR (X) ===== */
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  width: 38px;
-  height: 38px;
-  border: none;
-  border-radius: 50%;
-  background-color: #c74e34; /* Cor de destaque */
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-  background-color: #a83d28;
-  transform: scale(1.1);
-}
-
-/* ===== CABEÇALHO DO MODAL ===== */
-.modal-header {
-  margin-bottom: 1.8rem;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 1rem;
-}
-
-.modal-header h2 {
-  font-size: 1.9rem;
-  margin-bottom: 0.4rem;
+#modal-title {
+  font-size: 1.6rem;
   color: #222222;
 }
-
-.modal-header .modal-subtitle {
-  font-size: 1.1rem;
-  color: #777777;
-}
-
-/* ===== CORPO DO MODAL ===== */
-.modal-body {
+.modal-sub {
   font-size: 1rem;
-  line-height: 1.7;
+  color: #666666;
+}
+.modal-desc p {
   color: #444444;
+  line-height: 1.6;
 }
 
-.modal-body p {
-  margin-bottom: 1.2rem;
-  text-align: justify;
-}
-
-/* ===== IMAGENS DENTRO DO MODAL ===== */
-.modal-body img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* ===== LINKS E ANEXOS (PDFS, PROJETOS ETC.) ===== */
-.modal-links {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
+/* Links e anexos */
 .modal-links a {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
+  padding: 10px 14px;
   border-radius: 8px;
   text-decoration: none;
-  background-color: #c74e34;
+  background-color: #d86f52;
   color: #ffffff;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
 }
-
 .modal-links a:hover {
-  background-color: #a83d28;
   transform: translateY(-2px);
 }
 
-/* ===== ÁREA DE AÇÕES (botão fechar, abrir link etc.) ===== */
+/* Botões finais do modal */
 .modal-actions {
-  margin-top: 2rem;
-  text-align: center;
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
 }
-
 .modal-actions button {
-  padding: 0.7rem 1.4rem;
+  padding: 10px 16px;
   border: none;
   border-radius: 10px;
-  background-color: #c74e34;
+  background-color: #d86f52;
   color: #ffffff;
   font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
 }
-
 .modal-actions button:hover {
-  background-color: #a83d28;
-  transform: scale(1.05);
+  background-color: #ffffff;
+  color: #d86f52;
+  border: 2px solid #d86f52;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
+/* Botão X fechar */
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #333333;
+  cursor: pointer;
+}
+
+/* ================== RESPONSIVO ================== */
+@media (max-width: 720px) {
   .modal-content {
-    width: 90%;
-    padding: 1.8rem;
-    margin-top: 10%;
+    grid-template-columns: 1fr;
   }
-
-  .modal-header h2 {
-    font-size: 1.6rem;
+  .modal-image img {
+    min-height: 220px;
   }
-
-  .modal-body {
-    font-size: 0.95rem;
+  .modal-info {
+    padding: 20px;
   }
-
-  .modal-close {
-    width: 32px;
-    height: 32px;
-    font-size: 1.3rem;
-  }
- }
+}
