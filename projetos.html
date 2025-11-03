@@ -1,183 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projetos – Portfólio da Ge</title>
-  <link rel="stylesheet" href="projetos.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Modal Completa</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
- 
- <body>
-
-  <!-- ================= GALERIA ================= -->
-  <!-- ========== GALERIA (substitua a sua section atual) ========== -->
-<section class="galeria">
-  <div class="container-galeria">
-
-    <!-- CARD 1 -->
-    <article class="card" tabindex="0"
+<body>
+  <div class="container">
+    <div class="card" 
       data-title="Stand de vendas | Epadoca"
-      data-subtitle="Identidade visual e presença estratégica da marca"
-      data-img="Imagens/imgprojetos/Stand Epadoca.jpg"
-      data-desc="<p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p><p>Detalhes extras e resultados do projeto.</p>">
-      <img src="Imagens/imgprojetos/Stand Epadoca.jpg" alt="Stand de vendas | Epadoca">
-      <div class="info-card">
-        <h3>Stand de vendas | Epadoca</h3>
-        <p class="cat">Identidade visual e presença estratégica da marca</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </div>
-    </article>
+      data-category="Identidade visual e presença estratégica da marca"
+      data-image="img/epadoca.jpg"
+      data-gallery="img/extra1.jpg,img/extra2.jpg,img/extra3.jpg"
+      data-desc="
+        <p>Descrição longa do projeto. Aqui você pode colocar parágrafos, imagens e até links.</p>
+        <p><a href='https://site.com' target='_blank'>Link do projeto</a></p>
+        <p><a href='documento.pdf' target='_blank'>Baixar PDF</a></p>
+      ">
+      <img src="img/epadoca.jpg" alt="Stand Epadoca">
+      <h3>Stand de vendas | Epadoca</h3>
+      <p>Identidade visual e presença estratégica da marca</p>
+      <button class="open-modal">Ver detalhes</button>
+    </div>
 
-    <!-- CARD 2 -->
-    <article class="card" tabindex="0"
+    <div class="card" 
       data-title="Projeto 2"
-      data-subtitle="Categoria 2"
-      data-img="Imagens/projeto2.jpg"
-      data-desc="<p>Texto do projeto 2. Explique o que foi feito.</p>">
-      <img src="Imagens/projeto2.jpg" alt="Projeto 2">
-      <div class="info-card">
-        <h3>Título do Projeto</h3>
-        <p class="cat">Categoria</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </div>
-    </article>
-
-    <!-- CARD 3 -->
-    <article class="card" tabindex="0"
-      data-title="Projeto 3"
-      data-subtitle="Categoria 3"
-      data-img="Imagens/projeto3.jpg"
-      data-desc="<p>Texto do projeto 3. Mais informações aqui.</p>">
-      <img src="Imagens/projeto3.jpg" alt="Projeto 3">
-      <div class="info-card">
-        <h3>Título do Projeto</h3>
-        <p class="cat">Categoria</p>
-        <a href="#" class="open-modal">Ver detalhes</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ========== MODAL GLOBAL (apenas um modal usado por todos os cards) ========== -->
-<div class="modal-overlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-
-    <!-- X simples -->
-    <button class="close-modal" aria-label="Fechar modal">✕</button>
-
-    <!-- Conteúdo do modal -->
-    <div class="modal-image">
-      <img id="modal-img" src="" alt="">
+      data-category="Categoria B"
+      data-image="img/projeto2.jpg"
+      data-gallery="img/extra4.jpg,img/extra5.jpg"
+      data-desc="<p>Descrição do segundo projeto com mais detalhes, textos e links.</p>">
+      <img src="img/projeto2.jpg" alt="Projeto 2">
+      <h3>Projeto 2</h3>
+      <p>Categoria B</p>
+      <button class="open-modal">Ver detalhes</button>
     </div>
-
-    <div class="modal-body">
-      <p class="modal-top" id="modal-top"></p> <!-- opcional curto -->
-      <h2 id="modal-title"></h2>
-      <p class="modal-sub" id="modal-sub"></p>
-      <div id="modal-desc" class="modal-desc"></div>
-
-      <div id="modal-anexos" class="modal-links"></div>
-    </div>
-
   </div>
-</div>
 
-<script>
- (function(){
-  const overlay = document.querySelector('.modal-overlay');
-  const modalBox = document.querySelector('.modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalTitle = document.getElementById('modal-title');
-  const modalSub = document.getElementById('modal-sub');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalTop = document.getElementById('modal-top');
-  const modalAnexos = document.getElementById('modal-anexos');
-  const closeButtons = document.querySelectorAll('.close-modal');
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="" class="modal-main-image">
+        <h2 id="modalTitle"></h2>
+        <p id="modalCategory"></p>
+        <div id="modalDesc"></div>
+        <div id="modalGallery" class="modal-gallery"></div>
+      </div>
+    </div>
+  </div>
 
-  if (!overlay || !modalBox) {
-    console.warn('Modal não encontrado — verifique o HTML (.modal-overlay e .modal).');
-    return;
-  }
- 
-  function openModalFromCard(card) {
-    const title = card.dataset.title || '';
-    const subtitle = card.dataset.subtitle || '';
-    const desc = card.dataset.desc || '';
-    const img = card.dataset.img || '';
-    // se quiser usar um texto curto acima do título, pode usar data-top
-    const top = card.dataset.top || '';
+  <script src="script.js"></script>
 
-    modalTitle.textContent = title;
-    modalSub.textContent = subtitle;
-    modalDesc.innerHTML = desc; // permite HTML em data-desc
-    modalTop.textContent = top;
-    modalAnexos.innerHTML = ''; // limpar (pode preencher se tiver data-attachments)
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalCategory = document.getElementById("modalCategory");
+const modalDesc = document.getElementById("modalDesc");
+const modalGallery = document.getElementById("modalGallery");
 
-    if (modalImg) {
-      modalImg.src = img || '';
-      modalImg.alt = title || 'Imagem do projeto';
+// Abrir modal
+document.querySelectorAll(".open-modal").forEach(btn => {
+  btn.addEventListener("click", e => {
+    const card = e.target.closest(".card");
+    modalImage.src = card.dataset.image;
+    modalTitle.textContent = card.dataset.title;
+    modalCategory.textContent = card.dataset.category;
+    modalDesc.innerHTML = card.dataset.desc;
+
+    modalGallery.innerHTML = "";
+    if (card.dataset.gallery) {
+      const images = card.dataset.gallery.split(",");
+      images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src.trim();
+        img.alt = "Imagem extra";
+        modalGallery.appendChild(img);
+      });
     }
 
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // trava scroll da página
-    // foco inicial
-    const focusable = modalBox.querySelectorAll('button, a[href], input, textarea, select');
-    if (focusable.length) focusable[0].focus();
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+// Fechar modal
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "auto";
   }
+});
 
-  function closeModal() {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
 
-  // abrir via botão .open-modal
-  document.querySelectorAll('.open-modal').forEach(btn => {
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      const card = btn.closest('.card');
-      if (card) openModalFromCard(card);
-    });
-  });
-
-  // abrir clicando no card (exceto quando clica em links/botões internos)
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', function(e){
-      if (e.target.closest('a') || e.target.closest('button')) return;
-      openModalFromCard(card);
-     });
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModalFromCard(card);
-      }
-    });
-  });
-
-  // fechar via X
-  closeButtons.forEach(btn => {
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      closeModal();
-    });
-  });
-
-  // fechar clicando fora da caixa
-  overlay.addEventListener('click', function(e){
-    if (e.target === overlay) closeModal();
-  });
-
-  // fechar com ESC
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
-  });
-
-  // expõe função global (opcional)
-  window.openModalFromCard = openModalFromCard;
-})();
-</script>
- 
- </body>
+</body>
+</html>
