@@ -12,7 +12,7 @@ body {
   gap: 1.5rem;
   justify-content: center;
 }
- 
+
 .card {
   background: #fff;
   border-radius: 14px;
@@ -21,7 +21,7 @@ body {
   width: 300px;
   display: flex;
   flex-direction: column;
- }
+}
 
 .card img {
   width: 100%;
