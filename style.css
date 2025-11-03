@@ -1077,10 +1077,9 @@ p.small {
 }
 
 .iconeprojeto {
-  display: flex;
-  gap: 15px;
-  /* espaçamento entre os ícones */
-  align-items: center;
+   display: flex;
+   width: 70px;
+   align-items: center;
 }
 
 .projetos-container {
