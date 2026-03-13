@@ -50,19 +50,19 @@ body {
 
 .card h3 {
   font-size: 18px;
-  color: #555555;
+  color: #444444;
 }
 
 .card p {
   font-size: 14px;
-  color: #555555;
+  color: #444444;
 }
 
 .card button {
   margin-top: auto;
   padding: 10px;
-  background: #E56A00;
-  color: #555555;
+  background: #444444;
+  color: #eb866d;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -71,7 +71,7 @@ body {
 }
 
 .card button:hover {
-  background: #E56A00;
+  background: #FFFFFF;
 }
 
 /* =====================
